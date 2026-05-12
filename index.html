@@ -3,423 +3,175 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simya — Gizlilik Politikası</title>
+  <title>Simya Analiz — Kozmetik İçerik Analizi</title>
+  <meta name="description" content="Kullandığın kozmetiklerin içinde ne olduğunu bil. Simya Analiz ile barkod tara, içerikleri anında analiz et." />
   <style>
     :root {
-      --primary:   #6C5B4B;
-      --accent:    #A89482;
-      --bg:        #FBF9F8;
-      --surface:   #F5F3F3;
-      --border:    #E8E4E0;
-      --text:      #2C2420;
-      --muted:     #8C7B72;
-      --radius:    16px;
+      --primary: #6C5B4B;
+      --accent:  #A89482;
+      --bg:      #FBF9F8;
+      --surface: #F5F3F3;
+      --border:  #E8E4E0;
+      --text:    #2C2420;
+      --muted:   #8C7B72;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    html { scroll-behavior: smooth; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.7;
-      font-size: 16px;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* ── Header ── */
-    header {
-      background: var(--primary);
-      color: #fff;
-      padding: 48px 24px 40px;
-      text-align: center;
-    }
-    header .logo-ring {
-      display: inline-flex;
+    /* ── Hero ── */
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.15);
-      margin-bottom: 14px;
-      font-size: 28px;
+      text-align: center;
+      padding: 80px 24px 64px;
     }
-    header h1 {
-      font-size: 13px;
-      letter-spacing: 3px;
-      font-weight: 600;
-      opacity: 0.7;
-      text-transform: uppercase;
-      margin-bottom: 6px;
+    .logo-ring {
+      width: 96px; height: 96px;
+      border-radius: 26px;
+      background: var(--primary);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 32px;
+      box-shadow: 0 8px 32px rgba(108,91,75,.25);
     }
-    header p {
-      font-size: 22px;
-      font-weight: 300;
-      opacity: 0.95;
-    }
+    .logo-ring svg { width: 52px; height: 52px; }
 
-    /* ── Nav tabs ── */
-    nav {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-    nav a {
-      flex-shrink: 0;
-      padding: 14px 22px;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--muted);
-      text-decoration: none;
-      border-bottom: 2px solid transparent;
-      transition: color .2s, border-color .2s;
-    }
-    nav a:hover { color: var(--primary); }
-    nav a.active { color: var(--primary); border-color: var(--primary); }
-
-    /* ── Main layout ── */
-    main {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 40px 24px 80px;
-    }
-
-    /* ── Sections ── */
-    section { display: none; }
-    section.active { display: block; }
-
-    .section-title {
-      font-size: 11px;
-      letter-spacing: 2px;
-      font-weight: 600;
-      color: var(--accent);
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-    h2 {
-      font-size: 26px;
-      font-weight: 300;
-      color: var(--text);
-      margin-bottom: 28px;
-    }
-
-    /* ── Cards ── */
-    .card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
+    h1 {
+      font-size: clamp(28px, 6vw, 44px);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--primary);
       margin-bottom: 16px;
     }
-    .card h3 {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--primary);
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    .tagline {
+      font-size: clamp(16px, 3vw, 20px);
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.6;
+      margin-bottom: 48px;
     }
-    .card h3 .icon {
-      font-size: 18px;
-      line-height: 1;
-    }
-    .card p, .card li {
-      font-size: 14px;
-      color: #4A3F38;
-      line-height: 1.7;
-    }
-    .card ul {
-      padding-left: 18px;
-      margin-top: 6px;
-    }
-    .card ul li { margin-bottom: 4px; }
 
-    /* ── Disclaimer banner ── */
-    .disclaimer-banner {
-      background: #FFF8F5;
-      border: 1px solid #E8C4A8;
-      border-radius: var(--radius);
-      padding: 20px 24px;
-      margin-bottom: 24px;
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-    }
-    .disclaimer-banner .icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
-    .disclaimer-banner p { font-size: 14px; color: #5C3D20; }
-    .disclaimer-banner strong { font-weight: 700; }
-
-    /* ── Step list ── */
-    .steps { counter-reset: step; list-style: none; padding: 0; }
-    .steps li {
-      counter-increment: step;
+    /* ── Badges ── */
+    .badges {
       display: flex;
       gap: 16px;
-      align-items: flex-start;
-      margin-bottom: 20px;
-      font-size: 14px;
-      color: #4A3F38;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 64px;
     }
-    .steps li::before {
-      content: counter(step);
+    .badge-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       background: var(--primary);
       color: #fff;
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    /* ── Contact ── */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-    @media (max-width: 480px) { .contact-grid { grid-template-columns: 1fr; } }
-    .contact-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 18px 20px;
-    }
-    .contact-card .label {
-      font-size: 11px;
-      letter-spacing: 1.5px;
-      font-weight: 600;
-      color: var(--accent);
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-    .contact-card a {
-      font-size: 14px;
-      color: var(--primary);
       text-decoration: none;
-      font-weight: 500;
+      padding: 14px 28px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 600;
+      transition: opacity .15s, transform .15s;
     }
-    .contact-card a:hover { text-decoration: underline; }
+    .badge-btn:hover { opacity: .88; transform: translateY(-1px); }
+    .badge-btn.outline {
+      background: transparent;
+      border: 2px solid var(--border);
+      color: var(--muted);
+    }
+    .badge-btn svg { width: 22px; height: 22px; flex-shrink: 0; }
+
+    /* ── Features ── */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      max-width: 720px;
+      width: 100%;
+    }
+    .feat {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-align: left;
+    }
+    .feat-icon { font-size: 28px; margin-bottom: 12px; }
+    .feat h3 { font-size: 15px; font-weight: 600; margin-bottom: 6px; color: var(--primary); }
+    .feat p  { font-size: 13px; color: var(--muted); line-height: 1.5; }
 
     /* ── Footer ── */
     footer {
       text-align: center;
-      padding: 32px 24px;
-      font-size: 12px;
+      padding: 24px;
+      font-size: 13px;
       color: var(--muted);
       border-top: 1px solid var(--border);
     }
-    footer strong { color: var(--primary); }
-
-    /* ── Updated date ── */
-    .updated {
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 24px;
-    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="logo-ring">⚗️</div>
-  <h1>Simya</h1>
-  <p>Kozmetik İçerik Analizi</p>
-</header>
+<main class="hero">
+  <div class="logo-ring">
+    <!-- Alembic / flask icon -->
+    <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 8V22L10 38C8.5 40.5 10.2 44 13 44H39C41.8 44 43.5 40.5 42 38L32 22V8" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M18 8H34" stroke="white" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="20" cy="34" r="3" fill="white" opacity="0.6"/>
+      <circle cx="31" cy="38" r="2" fill="white" opacity="0.4"/>
+    </svg>
+  </div>
 
-<nav id="nav">
-  <a href="#" class="active" data-section="privacy">Gizlilik Politikası</a>
-  <a href="#" data-section="disclaimer">Tıbbi Feragatname</a>
-  <a href="#" data-section="terms">Kullanım Koşulları</a>
-  <a href="#" data-section="deletion">Veri Silme</a>
-  <a href="#" data-section="contact">İletişim</a>
-</nav>
+  <h1>Simya Analiz</h1>
+  <p class="tagline">Kullandığın kozmetiklerin içinde ne olduğunu bil.<br>Barkod tara, içerikleri anında analiz et.</p>
 
-<main>
+  <div class="badges">
+    <a href="https://apps.apple.com/tr/app/simya-analiz" class="badge-btn">
+      <!-- Apple icon -->
+      <svg viewBox="0 0 22 22" fill="currentColor"><path d="M16.26 11.29c-.03-3.22 2.63-4.78 2.75-4.85-1.5-2.19-3.83-2.49-4.65-2.52-1.97-.2-3.86 1.17-4.86 1.17-1.01 0-2.57-1.14-4.23-1.11C3.14 4.02 1.3 5.18.44 6.97c-1.75 3.04-.45 7.55 1.25 10.02.83 1.21 1.82 2.56 3.12 2.51 1.25-.05 1.73-.81 3.24-.81 1.51 0 1.94.81 3.27.79 1.35-.02 2.2-1.22 3.02-2.44.96-1.4 1.35-2.76 1.37-2.83-.03-.01-2.62-1.01-2.65-4.02zM13.55 3.14c.69-.84 1.16-2 1.03-3.16-.99.04-2.19.66-2.9 1.49-.64.74-1.19 1.92-1.04 3.05 1.1.08 2.22-.56 2.91-1.38z"/></svg>
+      App Store'dan İndir
+    </a>
+  </div>
 
-  <!-- ── Gizlilik Politikası ── -->
-  <section id="privacy" class="active">
-    <p class="section-title">Yasal Bilgi</p>
-    <h2>Gizlilik Politikası</h2>
-    <p class="updated">Son güncelleme: Nisan 2026 · Taslak — hukuki inceleme sürecinde</p>
-
-    <div class="card">
-      <h3><span class="icon">🔒</span> Verileriniz Cihazınızda Kalır</h3>
-      <p>Simya hiçbir kişisel veriyi kendi sunucularına göndermez veya depolamaz. Tarama geçmişiniz, cilt profiliniz ve tercihleriniz yalnızca sizin cihazınızda şifreli olarak (AES-256) saklanır.</p>
+  <div class="features">
+    <div class="feat">
+      <div class="feat-icon">🔬</div>
+      <h3>27.000+ İçerik</h3>
+      <p>AB CosIng veritabanı, EWG skorları ve Annex II/III listeleriyle desteklenir.</p>
     </div>
-
-    <div class="card">
-      <h3><span class="icon">📋</span> Hangi Verileri Saklarız?</h3>
-      <ul>
-        <li><strong>Tarama geçmişi</strong> — Taranan ürün isimleri ve barkodlar (yalnızca cihazda)</li>
-        <li><strong>Cilt profili</strong> — Cilt tipi, endişeler, hassasiyetler (yalnızca cihazda)</li>
-        <li><strong>Uygulama tercihleri</strong> — Bildirim ayarları, favoriler (yalnızca cihazda)</li>
-        <li><strong>OBF önbelleği</strong> — Gerçek zamanlı barkod sorgularının önbelleği (yalnızca cihazda)</li>
-      </ul>
+    <div class="feat">
+      <div class="feat-icon">📷</div>
+      <h3>Barkod & OCR</h3>
+      <p>Barkod tara ya da ambalajı fotoğrafla — yapay zeka içerikleri ayrıştırır.</p>
     </div>
-
-    <div class="card">
-      <h3><span class="icon">🌐</span> Üçüncü Taraf Hizmetler</h3>
-      <p>Simya yalnızca şu dış servisle iletişim kurar:</p>
-      <ul>
-        <li><strong>Open Beauty Facts API</strong> — Bilinmeyen barkodlar sorgulandığında ürün bilgisi almak için. Yalnızca barkod numarası gönderilir, kişisel veri iletilmez.</li>
-      </ul>
+    <div class="feat">
+      <div class="feat-icon">🧬</div>
+      <h3>Cilt Tipine Özel</h3>
+      <p>Cilt profiline göre kişiselleştirilmiş analiz ve uyarılar alırsın.</p>
     </div>
-
-    <div class="card">
-      <h3><span class="icon">🛡️</span> KVKK</h3>
-      <p>6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında uygulama herhangi bir kişisel veriyi işlememekte ya da aktarmamaktadır. Verileriniz yalnızca cihazınızda yerel olarak saklanmaktadır.</p>
-      <p style="margin-top:10px; font-size:13px; color: var(--muted);">⚠️ Bu metin taslak niteliğindedir ve hukuki inceleme sürecindedir.</p>
+    <div class="feat">
+      <div class="feat-icon">🇹🇷</div>
+      <h3>36.000 Türk Ürünü</h3>
+      <p>Gratis, Rossmann, Dermoeczanem ve OBF verisiyle Türkiye odaklı içerik.</p>
     </div>
-  </section>
-
-  <!-- ── Tıbbi Feragatname ── -->
-  <section id="disclaimer">
-    <p class="section-title">Önemli Bilgi</p>
-    <h2>Tıbbi Feragatname</h2>
-
-    <div class="disclaimer-banner">
-      <span class="icon">⚕️</span>
-      <p><strong>Bu uygulama tıbbi tavsiye veya teşhis niteliği taşımaz.</strong> Sağlık kararlarınız için mutlaka bir doktor veya dermatologa danışınız.</p>
-    </div>
-
-    <div class="card">
-      <h3><span class="icon">ℹ️</span> Uygulama Ne Yapar?</h3>
-      <p>Simya, kozmetik ürünlerin içerik listelerini (INCI) AB Kozmetik Yönetmeliği ve EWG Skin Deep gibi kamuya açık veri tabanlarıyla karşılaştırarak bilgilendirme amaçlı bir güvenlik puanı oluşturur.</p>
-    </div>
-
-    <div class="card">
-      <h3><span class="icon">⚠️</span> Sınırlılıklar</h3>
-      <ul>
-        <li>"Kısıtlama Yok" ifadesi, AB Kozmetik Yönetmeliği (1223/2009) kapsamında bilinen bir kısıtlama tespit edilmediği anlamına gelir; ilgili maddenin herkese uygun olduğu anlamına gelmez.</li>
-        <li>EWG Skin Deep, resmi bir düzenleyici otorite değil; bağımsız bir çevre savunuculuğu kuruluşunun veritabanıdır.</li>
-        <li>Bireysel alerjiler ve cilt hassasiyetleri kişiden kişiye farklılık gösterir.</li>
-        <li>Uygulama hamilelik, emzirme veya tıbbi tedavi süreçlerinde uzman tavsiyesinin yerini tutamaz.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3><span class="icon">🩺</span> Cilt Sorununuz Varsa</h3>
-      <p>Alerjik reaksiyon, cilt tahrişi veya herhangi bir cilt sağlığı sorunu yaşıyorsanız lütfen bir dermatologa başvurunuz. Simya'nın analiz sonuçları tıbbi muayenenin yerini tutmaz.</p>
-    </div>
-  </section>
-
-  <!-- ── Kullanım Koşulları ── -->
-  <section id="terms">
-    <p class="section-title">Yasal Bilgi</p>
-    <h2>Kullanım Koşulları</h2>
-    <p class="updated">Son güncelleme: Nisan 2026 · Taslak — hukuki inceleme sürecinde</p>
-
-    <div class="card">
-      <h3><span class="icon">📌</span> Sadece Bilgilendirme Amaçlıdır</h3>
-      <p>Simya uygulaması tarafından sunulan tüm içerikler, puanlamalar ve analizler sadece eğitim ve genel bilgilendirme amaçlıdır. Uygulama içinde yer alan hiçbir veri, tıbbi bir teşhis, tedavi veya profesyonel sağlık tavsiyesi niteliği taşımaz.</p>
-    </div>
-
-    <div class="card">
-      <h3><span class="icon">🩺</span> Tıbbi Tavsiye Değildir</h3>
-      <p>Simya bir sağlık kuruluşu değildir ve uygulama üzerinden sunulan bilgiler bir dermatolog, hekim veya eczacının profesyonel görüşünün yerine geçemez. Cildinizle ilgili spesifik bir rahatsızlığınız, alerjiniz veya tedavi gerektiren bir durumunuz varsa, herhangi bir ürünü kullanmadan önce mutlaka bir <strong>sağlık profesyoneline danışınız.</strong></p>
-    </div>
-
-    <div class="card">
-      <h3><span class="icon">📊</span> Veri Kaynakları ve Doğruluk</h3>
-      <p>Simya, ürün içerik listelerini (INCI) ve güvenlik skorlarını; halka açık veri tabanları (CosIng, SCCS, EWG), perakende satış platformları ve marka beyanlarından derlemektedir. Simya bu verilerin doğruluğunu, eksiksizliğini veya güncelliğini garanti etmez. Üreticiler ürün içeriklerinde önceden haber vermeksizin değişiklik yapabilir; bu nedenle nihai içerik listesi için her zaman ürünün fiziksel ambalajını kontrol ediniz.</p>
-    </div>
-
-    <div class="card">
-      <h3><span class="icon">⚖️</span> Sorumluluk Sınırlandırması</h3>
-      <p>Ürünlerin kullanımı sonucunda oluşabilecek alerjik reaksiyonlar, cilt hassasiyetleri veya diğer sağlık sorunlarından Simya ve geliştiricileri sorumlu tutulamaz. Uygulama içindeki skorlar <em>"Kanaat değil, Bilgi"</em> prensibiyle yalnızca mevcut bilimsel literatürün teknik bir özetidir. Bir ürünün yüksek güvenlik skoruna sahip olması, o ürünün her cilt tipinde %100 güvenli olduğu anlamına gelmez.</p>
-    </div>
-
-    <div class="card">
-      <h3><span class="icon">🏷️</span> Marka Tarafsızlığı</h3>
-      <p>Simya, herhangi bir kozmetik markasını doğrudan veya dolaylı olarak desteklemez, övmez veya karalamaz. Sunulan analizler, markadan bağımsız olarak yalnızca içeriği oluşturan ham maddelerin bilimsel verilerine dayanmaktadır.</p>
-    </div>
-  </section>
-
-  <!-- ── Veri Silme ── -->
-  <section id="deletion">
-    <p class="section-title">Veri Yönetimi</p>
-    <h2>Veri Silme</h2>
-
-    <div class="card">
-      <h3><span class="icon">🗑️</span> Tüm Verilerinizi Silin</h3>
-      <p style="margin-bottom: 16px;">Uygulama içindeki tüm verilerinizi aşağıdaki adımları izleyerek silebilirsiniz:</p>
-      <ol class="steps">
-        <li>Uygulamayı açın ve alt menüden <strong>Profil</strong> sekmesine gidin.</li>
-        <li><strong>Gizlilik ve Hakkında</strong> seçeneğine dokunun.</li>
-        <li>Sayfanın altındaki <strong>"Tüm Verilerimi Sil"</strong> butonuna dokunun.</li>
-        <li>Onay ekranında silme işlemini onaylayın.</li>
-      </ol>
-      <p style="font-size: 13px; color: var(--muted); margin-top: 12px;">Bu işlem; tarama geçmişinizi, cilt profilinizi, favorilerinizi ve uygulama tercihlerinizi kalıcı olarak siler. Geri alınamaz.</p>
-    </div>
-
-    <div class="card">
-      <h3><span class="icon">📱</span> iOS Sistem Üzerinden</h3>
-      <p>iPhone'unuzun <strong>Ayarlar → Genel → iPhone Depolama → Simya</strong> ekranından uygulamayı kaldırarak da tüm verileri silebilirsiniz.</p>
-    </div>
-
-    <div class="card">
-      <h3><span class="icon">✉️</span> E-posta ile Talep</h3>
-      <p>Veri silme talebinizi <a href="mailto:privacy@simyaapp.com">privacy@simyaapp.com</a> adresine iletebilirsiniz. Talepler 30 gün içinde yanıtlanır.</p>
-    </div>
-  </section>
-
-  <!-- ── İletişim ── -->
-  <section id="contact">
-    <p class="section-title">Destek</p>
-    <h2>İletişim</h2>
-
-    <div class="card" style="margin-bottom: 24px;">
-      <h3><span class="icon">👋</span> Size Nasıl Yardımcı Olabiliriz?</h3>
-      <p>Gizlilik sorularınız, hata bildirimleri veya öneri ve geribildirimleriniz için aşağıdaki kanalları kullanabilirsiniz.</p>
-    </div>
-
-    <div class="contact-grid">
-      <div class="contact-card">
-        <div class="label">Genel Destek</div>
-        <a href="mailto:info@simyaapp.com">info@simyaapp.com</a>
-      </div>
-      <div class="contact-card">
-        <div class="label">Gizlilik & KVKK</div>
-        <a href="mailto:privacy@simyaapp.com">privacy@simyaapp.com</a>
-      </div>
-    </div>
-  </section>
-
+  </div>
 </main>
 
 <footer>
-  <strong>Simya</strong> · Kozmetik İçerik Analizi<br>
-  <span>© 2026 Simya · Tüm hakları saklıdır</span>
+  <p>© 2026 Simya Analiz &nbsp;·&nbsp; <a href="/privacy/">Gizlilik Politikası</a> &nbsp;·&nbsp; <a href="mailto:info@simyaapp.com">info@simyaapp.com</a></p>
 </footer>
-
-<script>
-  const nav = document.getElementById('nav');
-  const links = nav.querySelectorAll('a');
-  const sections = document.querySelectorAll('section');
-
-  links.forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const target = link.dataset.section;
-
-      links.forEach(l => l.classList.remove('active'));
-      sections.forEach(s => s.classList.remove('active'));
-
-      link.classList.add('active');
-      document.getElementById(target).classList.add('active');
-
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  });
-</script>
 
 </body>
 </html>
