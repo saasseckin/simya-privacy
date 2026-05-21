@@ -288,7 +288,13 @@
 </nav>
 
 <header>
-  <div class="logo-ring">⚗️</div>
+  <div class="logo-ring">
+    <svg viewBox="0 0 52 52" fill="none" style="width:28px;height:28px;">
+      <path d="M20 8V22L10 38C8.5 40.5 10.2 44 13 44H39C41.8 44 43.5 40.5 42 38L32 22V8" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M18 8H34" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+      <circle cx="20" cy="34" r="3" fill="white" opacity="0.6"/>
+    </svg>
+  </div>
   <h1>Simya</h1>
   <p>Kozmetik İçerik Analizi</p>
 </header>
@@ -307,15 +313,15 @@
   <section id="privacy" class="active">
     <p class="section-title">Yasal Bilgi</p>
     <h2>Gizlilik Politikası</h2>
-    <p class="updated">Son güncelleme: Nisan 2026 · Taslak — hukuki inceleme sürecinde</p>
+    <p class="updated">Son güncelleme: Nisan 2026</p>
 
     <div class="card">
-      <h3><span class="icon">🔒</span> Verileriniz Cihazınızda Kalır</h3>
+      <h3>Verileriniz Cihazınızda Kalır</h3>
       <p>Simya hiçbir kişisel veriyi kendi sunucularına göndermez veya depolamaz. Tarama geçmişiniz, cilt profiliniz ve tercihleriniz yalnızca sizin cihazınızda şifreli olarak (AES-256) saklanır.</p>
     </div>
 
     <div class="card">
-      <h3><span class="icon">📋</span> Hangi Verileri Saklarız?</h3>
+      <h3>Hangi Verileri Saklarız?</h3>
       <ul>
         <li><strong>Tarama geçmişi</strong> — Taranan ürün isimleri ve barkodlar (yalnızca cihazda)</li>
         <li><strong>Cilt profili</strong> — Cilt tipi, endişeler, hassasiyetler (yalnızca cihazda)</li>
@@ -325,7 +331,7 @@
     </div>
 
     <div class="card">
-      <h3><span class="icon">🌐</span> Üçüncü Taraf Hizmetler</h3>
+      <h3>Üçüncü Taraf Hizmetler</h3>
       <p>Simya yalnızca şu dış servisle iletişim kurar:</p>
       <ul>
         <li><strong>Open Beauty Facts API</strong> — Bilinmeyen barkodlar sorgulandığında ürün bilgisi almak için. Yalnızca barkod numarası gönderilir, kişisel veri iletilmez.</li>
@@ -333,10 +339,9 @@
     </div>
 
     <div class="card">
-      <h3><span class="icon">🛡️</span> KVKK</h3>
+      <h3>KVKK</h3>
       <p>6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında uygulama hiçbir kişisel veriyi kendi sunucularına göndermez veya aktarmaz. Verileriniz yalnızca cihazınızda yerel olarak saklanmaktadır.</p>
       <p style="margin-top:10px;">Cilt tipi, hamilelik durumu, alerji bilgisi ve hassasiyet tetikleyicileri gibi veriler KVKK Md. 6 kapsamında <strong>özel nitelikli kişisel veri</strong> sayılmaktadır. Bu veriler uygulama tarafından yalnızca kişiselleştirilmiş analiz sunmak amacıyla cihazınızda işlenmekte; hiçbir şekilde dışarıya iletilmemektedir. Uygulamayı kullanarak bu işlemeye açık rıza vermiş olursunuz.</p>
-      <p style="margin-top:10px; font-size:13px; color: var(--muted);">⚠️ Bu metin taslak niteliğindedir ve hukuki inceleme sürecindedir.</p>
     </div>
   </section>
 
@@ -346,17 +351,16 @@
     <h2>Tıbbi Feragatname</h2>
 
     <div class="disclaimer-banner">
-      <span class="icon">⚕️</span>
       <p><strong>Bu uygulama tıbbi tavsiye veya teşhis niteliği taşımaz.</strong> Sağlık kararlarınız için mutlaka bir doktor veya dermatologa danışınız.</p>
     </div>
 
     <div class="card">
-      <h3><span class="icon">ℹ️</span> Uygulama Ne Yapar?</h3>
+      <h3>Uygulama Ne Yapar?</h3>
       <p>Simya, kozmetik ürünlerin içerik listelerini (INCI) AB Kozmetik Yönetmeliği (1223/2009), EU CosIng ve EWG Skin Deep gibi kamuya açık veri tabanlarıyla karşılaştırarak bilgilendirme amaçlı bir <strong>içerik skoru</strong> oluşturur. EWG Skin Deep, ABD merkezli bağımsız bir sivil kuruluştur; resmi düzenleyici otorite değildir.</p>
     </div>
 
     <div class="card">
-      <h3><span class="icon">⚠️</span> Sınırlılıklar</h3>
+      <h3>Sınırlılıklar</h3>
       <ul>
         <li>"Kısıtlama Yok" ifadesi, AB Kozmetik Yönetmeliği (1223/2009) kapsamında bilinen bir kısıtlama tespit edilmediği anlamına gelir; ilgili maddenin herkese uygun olduğu anlamına gelmez.</li>
         <li>EWG Skin Deep, resmi bir düzenleyici otorite değil; bağımsız bir çevre savunuculuğu kuruluşunun veritabanıdır.</li>
@@ -366,7 +370,7 @@
     </div>
 
     <div class="card">
-      <h3><span class="icon">🩺</span> Cilt Sorununuz Varsa</h3>
+      <h3>Cilt Sorununuz Varsa</h3>
       <p>Alerjik reaksiyon, cilt tahrişi veya herhangi bir cilt sağlığı sorunu yaşıyorsanız lütfen bir dermatologa başvurunuz. Simya'nın analiz sonuçları tıbbi muayenenin yerini tutmaz.</p>
     </div>
   </section>
@@ -375,30 +379,30 @@
   <section id="terms">
     <p class="section-title">Yasal Bilgi</p>
     <h2>Kullanım Koşulları</h2>
-    <p class="updated">Son güncelleme: Nisan 2026 · Taslak — hukuki inceleme sürecinde</p>
+    <p class="updated">Son güncelleme: Nisan 2026</p>
 
     <div class="card">
-      <h3><span class="icon">📌</span> Sadece Bilgilendirme Amaçlıdır</h3>
+      <h3>Sadece Bilgilendirme Amaçlıdır</h3>
       <p>Simya uygulaması tarafından sunulan tüm içerikler, puanlamalar ve analizler sadece eğitim ve genel bilgilendirme amaçlıdır. Uygulama içinde yer alan hiçbir veri, tıbbi bir teşhis, tedavi veya profesyonel sağlık tavsiyesi niteliği taşımaz.</p>
     </div>
 
     <div class="card">
-      <h3><span class="icon">🩺</span> Tıbbi Tavsiye Değildir</h3>
+      <h3>Tıbbi Tavsiye Değildir</h3>
       <p>Simya bir sağlık kuruluşu değildir ve uygulama üzerinden sunulan bilgiler bir dermatolog, hekim veya eczacının profesyonel görüşünün yerine geçemez. Cildinizle ilgili spesifik bir rahatsızlığınız, alerjiniz veya tedavi gerektiren bir durumunuz varsa, herhangi bir ürünü kullanmadan önce mutlaka bir <strong>sağlık profesyoneline danışınız.</strong></p>
     </div>
 
     <div class="card">
-      <h3><span class="icon">📊</span> Veri Kaynakları ve Doğruluk</h3>
+      <h3>Veri Kaynakları ve Doğruluk</h3>
       <p>Simya, ürün içerik listelerini (INCI) ve içerik skorlarını; halka açık veri tabanları (EU CosIng, SCCS, EWG Skin Deep), Open Beauty Facts ve marka beyanlarından derlemektedir. Simya bu verilerin doğruluğunu, eksiksizliğini veya güncelliğini garanti etmez. Üreticiler ürün içeriklerinde önceden haber vermeksizin değişiklik yapabilir; bu nedenle nihai içerik listesi için her zaman ürünün fiziksel ambalajını kontrol ediniz.</p>
     </div>
 
     <div class="card">
-      <h3><span class="icon">⚖️</span> Sorumluluk Sınırlandırması</h3>
+      <h3>Sorumluluk Sınırlandırması</h3>
       <p>Ürünlerin kullanımı sonucunda oluşabilecek alerjik reaksiyonlar, cilt hassasiyetleri veya diğer sağlık sorunlarından Simya ve geliştiricileri sorumlu tutulamaz. Uygulama içindeki skorlar <em>"Kanaat değil, Bilgi"</em> prensibiyle yalnızca mevcut bilimsel literatürün teknik bir özetidir. Bir ürünün yüksek güvenlik skoruna sahip olması, o ürünün her cilt tipinde %100 güvenli olduğu anlamına gelmez.</p>
     </div>
 
     <div class="card">
-      <h3><span class="icon">🏷️</span> Marka Tarafsızlığı</h3>
+      <h3>Marka Tarafsızlığı</h3>
       <p>Simya, herhangi bir kozmetik markasını doğrudan veya dolaylı olarak desteklemez, övmez veya karalamaz. Sunulan analizler, markadan bağımsız olarak yalnızca içeriği oluşturan ham maddelerin bilimsel verilerine dayanmaktadır.</p>
     </div>
   </section>
@@ -409,7 +413,7 @@
     <h2>Veri Silme</h2>
 
     <div class="card">
-      <h3><span class="icon">🗑️</span> Tüm Verilerinizi Silin</h3>
+      <h3>Tüm Verilerinizi Silin</h3>
       <p style="margin-bottom: 16px;">Uygulama içindeki tüm verilerinizi aşağıdaki adımları izleyerek silebilirsiniz:</p>
       <ol class="steps">
         <li>Uygulamayı açın ve alt menüden <strong>Profil</strong> sekmesine gidin.</li>
@@ -421,12 +425,12 @@
     </div>
 
     <div class="card">
-      <h3><span class="icon">📱</span> iOS Sistem Üzerinden</h3>
+      <h3>iOS Sistem Üzerinden</h3>
       <p>iPhone'unuzun <strong>Ayarlar → Genel → iPhone Depolama → Simya</strong> ekranından uygulamayı kaldırarak da tüm verileri silebilirsiniz.</p>
     </div>
 
     <div class="card">
-      <h3><span class="icon">✉️</span> E-posta ile Talep</h3>
+      <h3>E-posta ile Talep</h3>
       <p>Veri silme talebinizi <a href="mailto:privacy@simyaapp.com">privacy@simyaapp.com</a> adresine iletebilirsiniz. Talepler 30 gün içinde yanıtlanır.</p>
     </div>
   </section>
@@ -437,7 +441,7 @@
     <h2>İletişim</h2>
 
     <div class="card" style="margin-bottom: 24px;">
-      <h3><span class="icon">👋</span> Size Nasıl Yardımcı Olabiliriz?</h3>
+      <h3>Size Nasıl Yardımcı Olabiliriz?</h3>
       <p>Gizlilik sorularınız, hata bildirimleri veya öneri ve geribildirimleriniz için aşağıdaki kanalları kullanabilirsiniz.</p>
     </div>
 
