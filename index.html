@@ -99,7 +99,7 @@
         --accent:  #A88A72;
       }
       .hero-wrap { background: linear-gradient(160deg, #1A1614 0%, #0F0D0C 60%); }
-      .topnav    { background: rgba(15, 13, 12, 0.92); }
+      .topnav    { background: #161210; border-bottom-color: #2E2824; }
       .nav-cta, .btn-primary, .step-num { background: #6C5B4B !important; color: #fff !important; }
       .nav-brand .brand-icon, .footer-brand .brand-icon { background: #6C5B4B !important; }
       .feat      { background: var(--surface); }
@@ -126,12 +126,9 @@
     .topnav {
       position: sticky; top: 0; z-index: 100;
       background: #FBF9F8;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid #E8E4E0;
       padding: 13px 24px;
       display: flex; align-items: center; justify-content: space-between;
-    }
-    @supports (backdrop-filter: blur(1px)) {
-      .topnav { background: rgba(251, 249, 248, 0.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
     }
     .nav-brand {
       display: flex; align-items: center; gap: 10px;
@@ -272,7 +269,7 @@
     .badge-amber { background: #FEF3C7; color: var(--amber); }
 
     /* ── Stats Strip ── */
-    .stats-strip { background: var(--primary); padding: 30px 24px; }
+    .stats-strip { background: #6C5B4B; padding: 30px 24px; }
     .stats-grid {
       max-width: 880px; margin: 0 auto;
       display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; text-align: center;
