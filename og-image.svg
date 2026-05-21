@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="bg" cx="25%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#8A7060"/>
+      <stop offset="100%" stop-color="#3E3028"/>
+    </radialGradient>
+    <linearGradient id="divider" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.35)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#6C5B4B"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Logo badge -->
+  <rect x="80" y="160" width="88" height="88" rx="22" fill="rgba(255,255,255,0.14)"/>
+  <path d="M113 185v22l-14 25.5c-1.5 2.7.2 6.5 3 6.5h26c2.8 0 4.5-3.8 3-6.5L117 207v-22" stroke="white" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M110 185h20" stroke="white" stroke-width="3.8" stroke-linecap="round"/>
+  <circle cx="112" cy="226" r="4.5" fill="white" opacity="0.55"/>
+  <circle cx="126" cy="232" r="3" fill="white" opacity="0.35"/>
+
+  <!-- App name -->
+  <text x="190" y="222" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="62" font-weight="800" letter-spacing="-1.5" fill="white">Simya Analiz</text>
+
+  <!-- Tagline -->
+  <text x="191" y="267" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.7)">Kozmetik İçerik Analizi · iOS için Ücretsiz</text>
+
+  <!-- Divider -->
+  <rect x="80" y="306" width="580" height="1.5" fill="url(#divider)"/>
+
+  <!-- Feature rows -->
+  <circle cx="101" cy="348" r="7" fill="rgba(255,255,255,0.4)"/>
+  <text x="124" y="354" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="23" fill="rgba(255,255,255,0.88)">27.000+ INCI İçeriği · AB CosIng Onaylı</text>
+
+  <circle cx="101" cy="400" r="7" fill="rgba(255,255,255,0.4)"/>
+  <text x="124" y="406" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="23" fill="rgba(255,255,255,0.88)">36.000+ Türk Ürünü · Barkod &amp; OCR Tarama</text>
+
+  <circle cx="101" cy="452" r="7" fill="rgba(255,255,255,0.4)"/>
+  <text x="124" y="458" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="23" fill="rgba(255,255,255,0.88)">EWG Skorları · Cilt Tipine Özel Analiz</text>
+
+  <!-- Right: phone silhouette -->
+  <rect x="820" y="95" width="240" height="440" rx="38" fill="rgba(0,0,0,0.25)" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
+  <!-- Dynamic island -->
+  <rect x="890" y="113" width="100" height="20" rx="10" fill="rgba(0,0,0,0.5)"/>
+  <!-- Screen area -->
+  <rect x="833" y="135" width="214" height="388" rx="28" fill="rgba(255,255,255,0.06)"/>
+  <!-- App bar -->
+  <rect x="833" y="135" width="214" height="54" rx="0" fill="rgba(108,91,75,0.55)"/>
+  <text x="940" y="167" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="14" font-weight="700" fill="rgba(255,255,255,0.9)">Analiz Sonucu</text>
+  <!-- Score card -->
+  <rect x="846" y="200" width="188" height="70" rx="13" fill="rgba(255,255,255,0.12)"/>
+  <circle cx="882" cy="235" r="26" stroke="rgba(80,200,140,0.85)" stroke-width="3.5" fill="none"/>
+  <text x="882" y="241" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="18" font-weight="800" fill="rgba(80,200,140,0.95)">82</text>
+  <rect x="916" y="220" width="100" height="9" rx="4" fill="rgba(255,255,255,0.18)"/>
+  <rect x="916" y="220" width="78" height="9" rx="4" fill="rgba(80,200,140,0.65)"/>
+  <rect x="916" y="236" width="70" height="7" rx="3" fill="rgba(255,255,255,0.12)"/>
+  <rect x="916" y="252" width="52" height="12" rx="5" fill="rgba(80,200,140,0.25)"/>
+  <text x="942" y="262" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="8.5" font-weight="700" fill="rgba(80,200,140,0.9)">İyi</text>
+  <!-- Ingredient rows -->
+  <rect x="846" y="282" width="188" height="26" rx="8" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="861" cy="295" r="5" fill="rgba(80,200,140,0.8)"/>
+  <rect x="872" y="290" width="72" height="8" rx="3" fill="rgba(255,255,255,0.4)"/>
+  <rect x="846" y="314" width="188" height="26" rx="8" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="861" cy="327" r="5" fill="rgba(80,200,140,0.8)"/>
+  <rect x="872" y="322" width="90" height="8" rx="3" fill="rgba(255,255,255,0.4)"/>
+  <rect x="846" y="346" width="188" height="26" rx="8" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="861" cy="359" r="5" fill="rgba(230,160,50,0.85)"/>
+  <rect x="872" y="354" width="50" height="8" rx="3" fill="rgba(255,255,255,0.3)"/>
+  <rect x="846" y="378" width="188" height="26" rx="8" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="861" cy="391" r="5" fill="rgba(80,200,140,0.8)"/>
+  <rect x="872" y="386" width="64" height="8" rx="3" fill="rgba(255,255,255,0.38)"/>
+
+  <!-- Bottom URL -->
+  <text x="600" y="582" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" fill="rgba(255,255,255,0.35)" letter-spacing="0.5">simyaapp.com</text>
+</svg>

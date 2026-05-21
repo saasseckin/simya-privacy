@@ -9,12 +9,19 @@
   <meta property="og:description" content="Kullandığın kozmetiklerin içinde ne olduğunu bil. Barkod tara, içerikleri anında analiz et." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://simyaapp.com" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="https://simyaapp.com/og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Simya Analiz" />
   <meta name="twitter:description" content="Kozmetik içerik analizi. 27K+ INCI, EWG, cilt profili." />
+  <meta name="twitter:image" content="https://simyaapp.com/og-image.svg" />
   <link rel="canonical" href="https://simyaapp.com/" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="dns-prefetch" href="//apps.apple.com" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+  <link rel="preconnect" href="https://apps.apple.com" />
+  <meta name="apple-itunes-app" content="app-id=6761561263" />
   <meta name="keywords" content="kozmetik içerik analizi, INCI analizi, barkod tarayıcı, cilt bakımı uygulaması, EWG Skin Deep, AB CosIng, kozmetik güvenlik, cilt tipi analizi, Türkiye kozmetik" />
   <meta name="author" content="Simya Analiz" />
   <meta name="theme-color" content="#6C5B4B" />
@@ -28,7 +35,7 @@
     "operatingSystem": "iOS",
     "applicationCategory": "HealthApplication",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
-    "url": "https://apps.apple.com/tr/app/simya-analiz",
+    "url": "https://apps.apple.com/tr/app/simya-analiz/id6761561263",
     "inLanguage": "tr",
     "featureList": [
       "27.000+ INCI içerik veritabanı", "AB CosIng entegrasyonu",
@@ -168,7 +175,7 @@
       display: inline-flex; align-items: center; gap: 6px;
       background: var(--surface); border: 1px solid var(--border);
       border-radius: 100px; padding: 5px 14px;
-      font-size: 11px; font-weight: 700; color: var(--accent);
+      font-size: 11px; font-weight: 700; color: var(--primary);
       letter-spacing: 1px; text-transform: uppercase; margin-bottom: 22px;
     }
     .hero h1 {
@@ -221,6 +228,22 @@
         0 0 0 2px #2e2a27, 0 0 0 8px #1A1614,
         0 32px 80px rgba(0,0,0,0.32), 0 8px 24px rgba(0,0,0,0.18);
       animation: phonefloat 4.5s ease-in-out infinite;
+      will-change: transform;
+      transition: box-shadow .35s ease;
+    }
+    .phone-halo:hover .phone {
+      animation-play-state: paused;
+      box-shadow:
+        0 0 0 2px #3e3430, 0 0 0 8px #1A1614,
+        0 40px 100px rgba(0,0,0,0.38), 0 8px 24px rgba(0,0,0,0.18);
+    }
+    .phone-halo:hover::before {
+      transform: translate(-50%, -50%) scale(1.35);
+      opacity: 1.0;
+      transition: transform .4s ease, opacity .4s ease;
+    }
+    .phone-halo::before {
+      transition: transform .4s ease, opacity .4s ease;
     }
     @keyframes phonefloat {
       0%, 100% { transform: translateY(0); }
@@ -232,6 +255,20 @@
     }
     .phone-screen {
       background: var(--bg); border-radius: 28px; height: 430px; overflow: hidden;
+      position: relative;
+    }
+    .mock-scan-line {
+      position: absolute; left: 0; right: 0; top: 56px;
+      height: 2px;
+      background: linear-gradient(to right, transparent 0%, rgba(108,91,75,0.45) 35%, rgba(168,148,130,0.75) 50%, rgba(108,91,75,0.45) 65%, transparent 100%);
+      animation: scanswipe 5.5s ease-in-out 2s infinite;
+      pointer-events: none;
+    }
+    @keyframes scanswipe {
+      0%   { transform: translateY(0);    opacity: 0; }
+      6%   { opacity: 1; }
+      88%  { opacity: 0.7; }
+      100% { transform: translateY(374px); opacity: 0; }
     }
     .mock-appbar {
       background: var(--primary); padding: 40px 14px 11px;
@@ -287,7 +324,7 @@
     .section-head { text-align: center; margin-bottom: 52px; }
     .eyebrow {
       display: inline-block; font-size: 10px; letter-spacing: 2.5px;
-      font-weight: 700; color: var(--accent); text-transform: uppercase; margin-bottom: 13px;
+      font-weight: 700; color: var(--primary); text-transform: uppercase; margin-bottom: 13px;
     }
     .section-h2 {
       font-size: clamp(22px, 3.5vw, 34px); font-weight: 800;
@@ -403,6 +440,34 @@
       border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); text-align: center;
     }
 
+    /* ── Testimonials ── */
+    .testimonials-wrap { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    @media (max-width: 700px) { .testimonials-grid { grid-template-columns: 1fr; } }
+    .testimonial {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; padding: 26px 22px;
+    }
+    .testimonial-stars { display: flex; gap: 3px; margin-bottom: 15px; }
+    .testimonial-stars svg { width: 15px; height: 15px; }
+    .star-full  { fill: #F59E0B; }
+    .star-empty { fill: var(--border); }
+    .testimonial-quote {
+      font-size: 14px; line-height: 1.72; color: var(--text);
+      margin-bottom: 18px; font-style: italic;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 11px; }
+    .testimonial-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--primary); display: flex;
+      align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700; color: #fff; flex-shrink: 0;
+    }
+    .testimonial-name { font-size: 13px; font-weight: 700; color: var(--primary); }
+    .testimonial-meta { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
     /* ── Reveal animations ── */
     @media (prefers-reduced-motion: no-preference) {
       .reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
@@ -417,7 +482,7 @@
 <nav class="topnav">
   <a href="/" class="nav-brand">
     <div class="brand-icon">
-      <svg viewBox="0 0 52 52" fill="none">
+      <svg viewBox="0 0 52 52" fill="none" aria-hidden="true">
         <path d="M20 8V22L10 38C8.5 40.5 10.2 44 13 44H39C41.8 44 43.5 40.5 42 38L32 22V8" stroke="white" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M18 8H34" stroke="white" stroke-width="3.2" stroke-linecap="round"/>
         <circle cx="20" cy="34" r="3" fill="white" opacity="0.55"/>
@@ -425,7 +490,7 @@
     </div>
     Simya Analiz
   </a>
-  <a href="https://apps.apple.com/tr/app/simya-analiz" class="nav-cta">App Store</a>
+  <a href="https://apps.apple.com/tr/app/simya-analiz/id6761561263" class="nav-cta">App Store</a>
 </nav>
 
 <main>
@@ -437,8 +502,8 @@
       <h1>Kozmetiklerinde<br>ne var, <em>bil.</em></h1>
       <p class="hero-tagline">27.000+ INCI içeriği, AB CosIng ve EWG skorlarıyla — ürünlerini saniyeler içinde derinlemesine analiz et. Cilt tipine özel.</p>
       <div class="hero-btns">
-        <a href="https://apps.apple.com/tr/app/simya-analiz" class="btn-primary">
-          <svg viewBox="0 0 22 22" fill="currentColor">
+        <a href="https://apps.apple.com/tr/app/simya-analiz/id6761561263" class="btn-primary">
+          <svg viewBox="0 0 22 22" fill="currentColor" aria-hidden="true">
             <path d="M16.26 11.29c-.03-3.22 2.63-4.78 2.75-4.85-1.5-2.19-3.83-2.49-4.65-2.52-1.97-.2-3.86 1.17-4.86 1.17-1.01 0-2.57-1.14-4.23-1.11C3.14 4.02 1.3 5.18.44 6.97c-1.75 3.04-.45 7.55 1.25 10.02.83 1.21 1.82 2.56 3.12 2.51 1.25-.05 1.73-.81 3.24-.81 1.51 0 1.94.81 3.27.79 1.35-.02 2.2-1.22 3.02-2.44.96-1.4 1.35-2.76 1.37-2.83-.03-.01-2.62-1.01-2.65-4.02zM13.55 3.14c.69-.84 1.16-2 1.03-3.16-.99.04-2.19.66-2.9 1.49-.64.74-1.19 1.92-1.04 3.05 1.1.08 2.22-.56 2.91-1.38z"/>
           </svg>
           App Store'dan İndir
@@ -448,10 +513,11 @@
     </div>
 
     <div class="hero-phone">
-      <div class="phone-halo">
+      <div class="phone-halo" aria-hidden="true">
         <div class="phone">
           <div class="phone-island"></div>
           <div class="phone-screen">
+            <div class="mock-scan-line"></div>
             <div class="mock-appbar">
               <div class="mock-appbar-btn"></div>
               <div class="mock-appbar-title">Analiz Sonucu</div>
@@ -557,7 +623,7 @@
     <div class="feats-grid">
       <div class="feat reveal">
         <div class="feat-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M9 3h6M8.5 3v7.5L5 18a2 2 0 001.85 2.5h10.3A2 2 0 0019 18l-3.5-7.5V3"/>
             <line x1="6" y1="14" x2="18" y2="14"/>
           </svg>
@@ -567,7 +633,7 @@
       </div>
       <div class="feat reveal d1">
         <div class="feat-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/>
             <circle cx="12" cy="13" r="4"/>
           </svg>
@@ -577,7 +643,7 @@
       </div>
       <div class="feat reveal d2">
         <div class="feat-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
             <circle cx="12" cy="7" r="4"/>
           </svg>
@@ -587,7 +653,7 @@
       </div>
       <div class="feat reveal">
         <div class="feat-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
             <circle cx="12" cy="10" r="3"/>
           </svg>
@@ -597,7 +663,7 @@
       </div>
       <div class="feat reveal d1">
         <div class="feat-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/>
             <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
           </svg>
@@ -607,7 +673,7 @@
       </div>
       <div class="feat reveal d2">
         <div class="feat-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <polyline points="23 4 23 10 17 10"/>
             <polyline points="1 20 1 14 7 14"/>
             <path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/>
@@ -620,12 +686,78 @@
   </div>
 </div>
 
+<div class="testimonials-wrap">
+  <div class="section">
+    <div class="section-head reveal">
+      <div class="eyebrow">Kullanıcı Yorumları</div>
+      <h2 class="section-h2">Binlerce kişi cildi için daha bilinçli seçimler yapıyor</h2>
+    </div>
+    <div class="testimonials-grid">
+
+      <div class="testimonial reveal">
+        <div class="testimonial-stars" role="img" aria-label="5 üzerinden 5 yıldız">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path class="star-full" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path class="star-full" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path class="star-full" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path class="star-full" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path class="star-full" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p class="testimonial-quote">"Cilt bakımına yeni başladığımda hangi içeriklerin benim için uygun olduğunu bilmiyordum. Simya sayesinde artık bir ürün almadan önce içerikleri kontrol etmek alışkanlık haline geldi."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" aria-hidden="true">AK</div>
+          <div>
+            <div class="testimonial-name">Ayşe K.</div>
+            <div class="testimonial-meta">24 yaş · Yağlı/Karma Cilt</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial reveal d1">
+        <div class="testimonial-stars" role="img" aria-label="5 üzerinden 5 yıldız">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path class="star-full" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path class="star-full" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path class="star-full" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path class="star-full" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path class="star-full" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p class="testimonial-quote">"Parfüm alerjim var, her ürünü tek tek incelemek yorucu bir süreçti. Barkod tarama bu işi çok kolaylaştırdı. Artık rafta bir ürün görünce direkt tarıyorum."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" aria-hidden="true">MD</div>
+          <div>
+            <div class="testimonial-name">Merve D.</div>
+            <div class="testimonial-meta">31 yaş · Hassas Cilt</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial reveal d2">
+        <div class="testimonial-stars" role="img" aria-label="5 üzerinden 4 yıldız">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path class="star-full" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path class="star-full" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path class="star-full" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path class="star-full" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path class="star-empty" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p class="testimonial-quote">"Rutin uyumsuzluk uyarıları gerçekten işe yarıyor. Retinol ile AHA'yı aynı gecede kullandığımı fark etmeyebilirdim. Akademi makaleleri de çok öğretici."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" aria-hidden="true">ZA</div>
+          <div>
+            <div class="testimonial-name">Zeynep A.</div>
+            <div class="testimonial-meta">28 yaş · Karma Cilt</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <div class="trust-wrap">
   <div class="section">
     <div class="trust-grid reveal">
       <div class="trust-item">
         <div class="trust-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
             <path d="M7 11V7a5 5 0 0110 0v4"/>
           </svg>
@@ -635,7 +767,7 @@
       </div>
       <div class="trust-item">
         <div class="trust-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
             <polyline points="9 12 11 14 15 10"/>
           </svg>
@@ -645,7 +777,7 @@
       </div>
       <div class="trust-item">
         <div class="trust-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="12" cy="12" r="10"/>
             <line x1="2" y1="12" x2="22" y2="12"/>
             <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
@@ -692,8 +824,8 @@
 <div class="cta-wrap reveal">
   <h2>Hangi ürünü kullandığını bil.</h2>
   <p>iOS'ta ücretsiz. Hesap açmana gerek yok.<br>Veriler tamamen cihazında kalır.</p>
-  <a href="https://apps.apple.com/tr/app/simya-analiz" class="btn-primary" style="display: inline-flex;">
-    <svg viewBox="0 0 22 22" fill="currentColor" style="width:20px;height:20px;">
+  <a href="https://apps.apple.com/tr/app/simya-analiz/id6761561263" class="btn-primary" style="display: inline-flex;">
+    <svg viewBox="0 0 22 22" fill="currentColor" style="width:20px;height:20px;" aria-hidden="true">
       <path d="M16.26 11.29c-.03-3.22 2.63-4.78 2.75-4.85-1.5-2.19-3.83-2.49-4.65-2.52-1.97-.2-3.86 1.17-4.86 1.17-1.01 0-2.57-1.14-4.23-1.11C3.14 4.02 1.3 5.18.44 6.97c-1.75 3.04-.45 7.55 1.25 10.02.83 1.21 1.82 2.56 3.12 2.51 1.25-.05 1.73-.81 3.24-.81 1.51 0 1.94.81 3.27.79 1.35-.02 2.2-1.22 3.02-2.44.96-1.4 1.35-2.76 1.37-2.83-.03-.01-2.62-1.01-2.65-4.02zM13.55 3.14c.69-.84 1.16-2 1.03-3.16-.99.04-2.19.66-2.9 1.49-.64.74-1.19 1.92-1.04 3.05 1.1.08 2.22-.56 2.91-1.38z"/>
     </svg>
     App Store'dan İndir
@@ -706,7 +838,7 @@
   <div class="footer-row">
     <a href="/" class="footer-brand">
       <div class="brand-icon">
-        <svg viewBox="0 0 52 52" fill="none">
+        <svg viewBox="0 0 52 52" fill="none" aria-hidden="true">
           <path d="M20 8V22L10 38C8.5 40.5 10.2 44 13 44H39C41.8 44 43.5 40.5 42 38L32 22V8" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M18 8H34" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
         </svg>

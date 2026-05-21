@@ -1,0 +1,18 @@
+{
+  "name": "Simya Analiz",
+  "short_name": "Simya",
+  "description": "Kozmetik içerik analizi — 27.000+ INCI, EWG, cilt profili",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FBF9F8",
+  "theme_color": "#6C5B4B",
+  "lang": "tr",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
