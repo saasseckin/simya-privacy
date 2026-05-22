@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simya Akademi — Cilt Bakımının Bilimi</title>
+  <meta name="description" content="Niasinamid, retinol, AHA/BHA ve daha fazlası. 60 derinlemesine makale ile kozmetik içerikleri öğren. Marka bağımsız, bilim tabanlı."/>
+  <meta property="og:title" content="Simya Akademi — Cilt Bakımının Bilimi"/>
+  <meta property="og:description" content="60 derinlemesine makale: aktifler, nemlendiriciler, eksfolyanlar ve daha fazlası."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://simyaapp.com/akademi/"/>
+  <meta property="og:image" content="https://simyaapp.com/og-image.png"/>
+  <meta property="og:image:type" content="image/png"/>
+  <meta name="robots" content="noai, noimageai"/>
+  <link rel="canonical" href="https://simyaapp.com/akademi/"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"CollectionPage","name":"Simya Akademi","description":"Kozmetik içerik bilim makaleleri","url":"https://simyaapp.com/akademi/","numberOfItems":60}
+  </script>
+  <style>
+
+    :root {
+      --primary: #6C5B4B; --accent: #A89482; --bg: #FBF9F8; --surface: #F5F3F3;
+      --border: #E8E4E0; --text: #2C2420; --muted: #8C7B72;
+      --green: #2E7D5E; --amber: #B45309;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #0F0D0C; --surface: #1A1614; --border: #2E2824; --text: #EDE9E6; --muted: #8A7870; --primary: #C4A68C; --accent: #A88A72; }
+      .topnav { background: #161210; border-bottom-color: #2E2824; }
+      .nav-brand { color: #D4B89A; }
+      .nav-cta, .btn-primary { background: #6C5B4B !important; color: #fff !important; }
+      .nav-brand .brand-icon, .footer-brand .brand-icon { background: #6C5B4B !important; }
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); }
+    .topnav { position: sticky; top: 0; z-index: 100; background: #FBF9F8; border-bottom: 1px solid #E8E4E0; padding: 13px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 16px; color: #6C5B4B; text-decoration: none; }
+    .nav-brand .brand-icon { width: 32px; height: 32px; background: var(--primary); border-radius: 9px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .nav-brand .brand-icon svg { width: 18px; height: 18px; }
+    .nav-cta { background: var(--primary); color: #fff; text-decoration: none; padding: 9px 20px; border-radius: 10px; font-size: 14px; font-weight: 600; transition: opacity .15s; white-space: nowrap; }
+    .nav-cta:hover { opacity: .84; }
+    footer { border-top: 1px solid var(--border); padding: 28px 24px; }
+    .footer-row { max-width: 880px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-brand { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 15px; color: var(--primary); text-decoration: none; }
+    .footer-brand .brand-icon { width: 26px; height: 26px; border-radius: 7px; background: var(--primary); display: flex; align-items: center; justify-content: center; }
+    .footer-brand .brand-icon svg { width: 14px; height: 14px; }
+    .footer-links { display: flex; gap: 22px; flex-wrap: wrap; }
+    .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color .15s; }
+    .footer-links a:hover { color: var(--primary); }
+    .footer-copy { max-width: 880px; margin: 16px auto 0; padding-top: 16px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); text-align: center; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 9px; background: var(--primary); color: #fff; text-decoration: none; padding: 14px 26px; border-radius: 13px; font-size: 15px; font-weight: 600; transition: opacity .15s, transform .15s; }
+    .btn-primary:hover { opacity: .87; transform: translateY(-1px); }
+    .conflict-box { border-radius: 16px; padding: 18px 20px; margin-bottom: 24px; display: flex; align-items: flex-start; gap: 14px; }
+    .conflict-box.warn { background: #FEF2F2; border: 1px solid #FECACA; }
+    .conflict-icon { font-size: 20px; flex-shrink: 0; line-height: 1.4; }
+    .conflict-body h3 { font-size: 14px; font-weight: 700; color: #B91C1C; margin-bottom: 5px; }
+    .conflict-body p { font-size: 13px; color: #2C2420; line-height: 1.6; }
+    .conflict-body .tip { font-size: 12px; color: #8C7B72; margin-top: 6px; font-style: italic; }
+    .conflict-compare-link { font-size: 12px; color: #6C5B4B; text-decoration: none; border-bottom: 1px solid #E8E4E0; margin-top: 8px; display: inline-block; }
+    .conflict-compare-link:hover { border-color: #6C5B4B; }
+    .conflict-section-heading { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #A89482; margin-bottom: 14px; }
+
+    .hero { background: linear-gradient(160deg,#fff 0%,var(--bg) 60%); border-bottom:1px solid var(--border); padding: 56px 24px 48px; text-align:center; }
+    .hero-eyebrow { display:inline-flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;color:var(--primary);letter-spacing:1px;text-transform:uppercase;margin-bottom:18px; }
+    .hero h1 { font-size:clamp(28px,5vw,44px);font-weight:800;letter-spacing:-1.2px;line-height:1.1;margin-bottom:16px; }
+    .hero h1 em { font-style:normal;color:var(--primary); }
+    .hero p { font-size:17px;color:var(--muted);max-width:480px;margin:0 auto 32px;line-height:1.65; }
+    .hero-search { max-width:440px;margin:0 auto;position:relative; }
+    .hero-search input { width:100%;padding:14px 48px 14px 18px;border:1.5px solid var(--border);border-radius:14px;font-size:15px;background:var(--surface);color:var(--text);outline:none;transition:border-color .15s; }
+    .hero-search input:focus { border-color:var(--primary); }
+    .hero-search svg { position:absolute;right:15px;top:50%;transform:translateY(-50%);width:18px;height:18px;stroke:var(--muted);pointer-events:none; }
+    .main { max-width:960px;margin:0 auto;padding:48px 24px 80px; }
+    .cat-section { margin-bottom:52px; }
+    .cat-heading { font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--primary);margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--border); }
+    .art-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:16px; }
+    @media(max-width:720px){ .art-grid{ grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:460px){ .art-grid{ grid-template-columns:1fr; } }
+    .art-card { background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:22px 18px;text-decoration:none;color:inherit;display:flex;flex-direction:column;justify-content:space-between;gap:14px;transition:box-shadow .2s,transform .2s; }
+    .art-card:hover { box-shadow:0 6px 24px rgba(108,91,75,.12);transform:translateY(-2px); }
+    .art-card-top { flex:1; }
+    .art-meta { display:flex;align-items:center;gap:8px;margin-bottom:12px; }
+    .safety-badge { font-size:10px;font-weight:700;border-radius:6px;padding:3px 8px; }
+    .read-time { font-size:10px;color:var(--muted); }
+    .art-card h3 { font-size:14px;font-weight:700;color:var(--primary);margin-bottom:8px;line-height:1.35; }
+    .art-card p { font-size:12.5px;color:var(--muted);line-height:1.6; }
+    .art-tags { display:flex;flex-wrap:wrap;gap:5px; }
+    .tag { font-size:10px;background:var(--bg);border:1px solid var(--border);border-radius:100px;padding:3px 9px;color:var(--muted); }
+    .hidden { display:none!important; }
+  </style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="/" class="nav-brand">
+    <div class="brand-icon">
+      <svg viewBox="0 0 52 52" fill="none" aria-hidden="true">
+        <path d="M20 8V22L10 38C8.5 40.5 10.2 44 13 44H39C41.8 44 43.5 40.5 42 38L32 22V8" stroke="white" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M18 8H34" stroke="white" stroke-width="3.2" stroke-linecap="round"/>
+        <circle cx="20" cy="34" r="3" fill="white" opacity="0.55"/>
+      </svg>
+    </div>
+    Simya Analiz
+  </a>
+  <a href="https://apps.apple.com/tr/app/simya-analiz/id6761561263" class="nav-cta">App Store</a>
+</nav>
+<div class="hero">
+  <div class="hero-eyebrow">✦ 60 Makale</div>
+  <h1>Cilt bakımının<br><em>bilimi burada.</em></h1>
+  <p>Aktifler, nemlendiriciler, eksfolyanlar — marka bağımsız, bilim tabanlı rehber.</p>
+  <div class="hero-search">
+    <input type="search" id="search" placeholder="İçerik ara: niasinamid, retinol…" autocomplete="off" aria-label="Makale ara"/>
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+  </div>
+</div>
+<main class="main" id="main">
+
+  <section class="cat-section">
+    <h2 class="cat-heading">Aktif İçerik</h2>
+    <div class="art-grid">
+      <a href="/akademi/niacinamide/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Niasinamid (B3 Vitamini)</h3>
+          <p>Niasinamid, cilt bariyerini güçlendiren ve sebum dengesi sağlayan, hemen hemen tüm cilt tiplerinde kullanılabi…</p>
+        </div>
+        <div class="art-tags"><span class="tag">B vitamini</span><span class="tag">nemlandırma</span><span class="tag">cilt bariyeri</span></div>
+      </a>
+      <a href="/akademi/retinol/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#FEF3C7;color:#B45309;">Dikkatli Kullan</span><span class="read-time">2 dk</span></div>
+          <h3>Retinol</h3>
+          <p>Retinol, cilt bakımında en güçlü ve en çok araştırılan aktif bileşenlerden biridir. Yaşlanma belirtileriyle mü…</p>
+        </div>
+        <div class="art-tags"><span class="tag">yaşlanma</span><span class="tag">aktivasyon</span><span class="tag">gözenek</span></div>
+      </a>
+      <a href="/akademi/bakuchiol/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Bakuchiol</h3>
+          <p>Bakuchiol, doğal kaynaklı ve retinol benzeri etkileriyle tanınan bir aktif içeriktir. Hassas ciltler için de u…</p>
+        </div>
+        <div class="art-tags"><span class="tag">yaşlanma belirtileri</span><span class="tag">hassas ciltler</span><span class="tag">doğal içerik</span></div>
+      </a>
+      <a href="/akademi/azelaic-acid/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Azelaik Asit</h3>
+          <p>Azelaik asit, doğal kaynaklarından elde edilen ve akne, hiperpigmentasyon gibi yaygın cilt sorunlarına karşı e…</p>
+        </div>
+        <div class="art-tags"><span class="tag">akne</span><span class="tag">cilt tonu</span><span class="tag">antioksidan</span></div>
+      </a>
+      <a href="/akademi/kojic-acid/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#FEF3C7;color:#B45309;">Dikkatli Kullan</span><span class="read-time">2 dk</span></div>
+          <h3>Kojik Asit</h3>
+          <p>Koji mantarından elde edilen kojik asit, lekeler ve cilt renk eşitsizliklerini hafifletmeye yardımcı olan bir …</p>
+        </div>
+        <div class="art-tags"><span class="tag">pigmentasyon</span><span class="tag">leke tedavisi</span><span class="tag">cilt aydınlatma</span></div>
+      </a>
+      <a href="/akademi/peptides/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Peptidler</h3>
+          <p>Palmitoyl Tripeptide-1, ciltimizin doğal koruma mekanizmalarını destekleyen ve yaşlanma belirtilerine karşı ça…</p>
+        </div>
+        <div class="art-tags"><span class="tag">peptidler</span><span class="tag">yaşlanmaya karşı</span><span class="tag">cildin yapısı</span></div>
+      </a>
+      <a href="/akademi/alpha-arbutin/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Alpha-Arbutin</h3>
+          <p>Doğal kaynaktan elde edilen bu içerik, melanin üretimini azaltarak cilt lekelerine ve renk dengesizliğine karş…</p>
+        </div>
+        <div class="art-tags"><span class="tag">beyazlatma</span><span class="tag">leke giderici</span><span class="tag">renk tonu eşitleme</span></div>
+      </a>
+      <a href="/akademi/adenosine/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Adenozin</h3>
+          <p>Hücrelerin enerji kaynağı olan adenozin, cilde uygulandığında cildin canlanmasına ve genç görünmesine yardımcı…</p>
+        </div>
+        <div class="art-tags"><span class="tag">canlandırıcı</span><span class="tag">elastikiyet</span><span class="tag">yaşlanma belirtileri</span></div>
+      </a>
+      <a href="/akademi/caffeine/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Kafein</h3>
+          <p>Kafein, cilt bakımında çoğunlukla çanta altı şişliğini azaltmak ve cildi canlandırmak için kullanılan doğal bi…</p>
+        </div>
+        <div class="art-tags"><span class="tag">uyarıcı</span><span class="tag">antioksidan</span><span class="tag">çanta altı</span></div>
+      </a>
+      <a href="/akademi/tea-tree/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#FEF3C7;color:#B45309;">Dikkatli Kullan</span><span class="read-time">2 dk</span></div>
+          <h3>Çay Ağacı Yağı</h3>
+          <p>Çay ağacı yağı, doğal antimikrobiyel özellikleriyle bilinir ve soyulmuş ciltler tarafından tercih edilebilir. …</p>
+        </div>
+        <div class="art-tags"><span class="tag">Doğal içerik</span><span class="tag">Yağlı cilt</span><span class="tag">Sorunlu cilt</span></div>
+      </a>
+      <a href="/akademi/tranexamic-acid/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Traneksamik Asit</h3>
+          <p>Traneksamik asit, ciltteki lekeleri açmaya ve kararmış alanları aydınlatmaya yardımcı olan güçlü bir aktif içe…</p>
+        </div>
+        <div class="art-tags"><span class="tag">pigmentasyon</span><span class="tag">leke giderme</span><span class="tag">aydınlatma</span></div>
+      </a>
+      <a href="/akademi/benzoyl-peroxide/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#FEF3C7;color:#B45309;">Dikkatli Kullan</span><span class="read-time">2 dk</span></div>
+          <h3>Benzoil Peroksit</h3>
+          <p>Akne ile mücadelenin en etkili silahlarından biri olan benzoil peroksit, antibakteriyel gücüyle sorunlu ciltle…</p>
+        </div>
+        <div class="art-tags"><span class="tag">akne</span><span class="tag">antibakteriyel</span><span class="tag">aktif içerik</span></div>
+      </a>
+      <a href="/akademi/snail-mucin/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Salyangoz Salgısı</h3>
+          <p>Doğanın cilt bakımı armağanı olan salyangoz salgısı, binlerce yıldır kullanılan bir içerik olup modern cilt ba…</p>
+        </div>
+        <div class="art-tags"><span class="tag">nemlendirim</span><span class="tag">onarım</span><span class="tag">doğal</span></div>
+      </a>
+      <a href="/akademi/collagen/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Kollajen</h3>
+          <p>Kollajen, cildimizin doğal yapısını oluşturan temel proteindir ve yaşlanma belirtileriyle savaşmada güçlü bir …</p>
+        </div>
+        <div class="art-tags"><span class="tag">nemlendirme</span><span class="tag">esneklik</span><span class="tag">yaşlanma belirtileri</span></div>
+      </a>
+      <a href="/akademi/rosehip-oil/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Kuşburnu Yağı</h3>
+          <p>Kuşburnu yağı, doğal antioksidanlar ve vitaminlerle zengin bir cilt yağıdır. Yaşlanma belirtilerine karşı ve c…</p>
+        </div>
+        <div class="art-tags"><span class="tag">doğal yağ</span><span class="tag">antioksidan</span><span class="tag">yaşlanma belirtileri</span></div>
+      </a>
+      <a href="/akademi/copper-peptide/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Bakır Peptid (GHK-Cu)</h3>
+          <p>Bakır ile desteklenen küçük bir protein parçası olan GHK-Cu, cildin yaşlanma belirtilerine karşı korunmasında …</p>
+        </div>
+        <div class="art-tags"><span class="tag">antioksidan</span><span class="tag">yaşlanma belirtileri</span><span class="tag">cilt sıkılığı</span></div>
+      </a>
+      <a href="/akademi/zinc-pca/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Çinko PCA</h3>
+          <p>Çinko PCA, cilt yağı kontrolü ve cilt sakinleştirmesinde işe yarayan doğal bir bileşendir. Akneye yatkın ve ya…</p>
+        </div>
+        <div class="art-tags"><span class="tag">yağ kontrolü</span><span class="tag">akne</span><span class="tag">yağlı cilt</span></div>
+      </a>
+      <a href="/akademi/licorice-root/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Meyan Kökü Özü</h3>
+          <p>Meyan kökü özü, binlerce yıldır kullanılan doğal bir bileşen olup cildi yatıştırır ve aydınlatır. Modern cilt …</p>
+        </div>
+        <div class="art-tags"><span class="tag">doğal içerik</span><span class="tag">anti-enflamatuar</span><span class="tag">hassas cilt</span></div>
+      </a>
+      <a href="/akademi/propolis/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Propolis</h3>
+          <p>Propolis, arıların doğal olarak ürettikleri güçlü bir bileşen olup, cilt bakımında antioksidan ve koruyucu öze…</p>
+        </div>
+        <div class="art-tags"><span class="tag">antioksidan</span><span class="tag">doğal</span><span class="tag">hassas cilt</span></div>
+      </a>
+      <a href="/akademi/retinyl-palmitate/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#FEF3C7;color:#B45309;">Dikkatli Kullan</span><span class="read-time">2 dk</span></div>
+          <h3>Retinyl Palmitat</h3>
+          <p>Cildinizi gençleştirmek istiyorsanız, retinyl palmitat vitamin A'nın hafif ama etkili bir şeklidir ve yaşlanma…</p>
+        </div>
+        <div class="art-tags"><span class="tag">retinoid</span><span class="tag">yaşlanma belirtileri</span><span class="tag">esneklik</span></div>
+      </a>
+    </div>
+  </section>
+  <section class="cat-section">
+    <h2 class="cat-heading">Nemlendirici</h2>
+    <div class="art-grid">
+      <a href="/akademi/hyaluronic-acid/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Hyaluronik Asit</h3>
+          <p>Hyaluronik asit, cildin kendi yapısında bulunan ve etkili bir nem tutucudur. Tüm cilt tipleri için uygun, tahr…</p>
+        </div>
+        <div class="art-tags"><span class="tag">nemlendirici</span><span class="tag">nem tutuş</span><span class="tag">cildin sağlığı</span></div>
+      </a>
+      <a href="/akademi/glycerin/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Gliserin</h3>
+          <p>Gliserin, cildin doğal nem düzeyini koruyarak sağlıklı ve esnek bir görünüm sağlayan güçlü bir nemlendiricidir…</p>
+        </div>
+        <div class="art-tags"><span class="tag">nemlendirme</span><span class="tag">kuru cilt</span><span class="tag">hassas cilt</span></div>
+      </a>
+      <a href="/akademi/squalane/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Skualen</h3>
+          <p>Skualane, cildin kendi yapısında yer alan doğal bir yağı taklit eden, oldukça hafif ve etkili bir nemlendirici…</p>
+        </div>
+        <div class="art-tags"><span class="tag">nemlendirici</span><span class="tag">hafif doku</span><span class="tag">antioksidan</span></div>
+      </a>
+      <a href="/akademi/shea-butter/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Shea Yağı</h3>
+          <p>Shea yağı, doğal bir bitki yağı olup cildi derinlemesine nemlendirir ve koruyucu bir tabaka oluşturur. Yüksek …</p>
+        </div>
+        <div class="art-tags"><span class="tag">nemlendirme</span><span class="tag">kuru cilt</span><span class="tag">doğal yağ</span></div>
+      </a>
+      <a href="/akademi/jojoba-oil/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Jojoba Yağı</h3>
+          <p>Jojoba yağı, cilt tarafından üretilen doğal yağa yapı olarak benzeyen bir nemlendiricidir ve tüm cilt tiplerin…</p>
+        </div>
+        <div class="art-tags"><span class="tag">nemlendirici</span><span class="tag">doğal</span><span class="tag">tüm cilt tiplerine uygun</span></div>
+      </a>
+      <a href="/akademi/mineral-oil/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Mineral Yağ</h3>
+          <p>Mineral yağ, petrol kaynaklı ve yüzyıllardır cilt bakımında kullanılan bir nemlendirici bileşendir. Uygun fiya…</p>
+        </div>
+        <div class="art-tags"><span class="tag">nemlendirici</span><span class="tag">kuru cilt</span><span class="tag">okluzyon</span></div>
+      </a>
+      <a href="/akademi/argan-oil/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Argan Yağı</h3>
+          <p>Argan yağı, Fas'ta yetişen ağaçlardan elde edilen doğal bir yağ olup, cildin derinlemesine nemlendirilmesinde …</p>
+        </div>
+        <div class="art-tags"><span class="tag">nemlendirici</span><span class="tag">antioksidan</span><span class="tag">doğal</span></div>
+      </a>
+      <a href="/akademi/urea/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Üre (Karbamid)</h3>
+          <p>Ciltinizin doğal nemini koruyan ve günlük bakımda çok yararlı bir bileşen olan üre, hemen hemen her cilt tipi …</p>
+        </div>
+        <div class="art-tags"><span class="tag">nemlendirici</span><span class="tag">kuru cilt</span><span class="tag">hassas cilt</span></div>
+      </a>
+      <a href="/akademi/polyglutamic-acid/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Poliglutamik Asit</h3>
+          <p>Poliglutamik asit, cildi derinlemesine nemlandıran ve yumuşatan bir bileşiktir. Hassas ciltler de dahil her ci…</p>
+        </div>
+        <div class="art-tags"><span class="tag">nemlendirme</span><span class="tag">hassas cilt</span><span class="tag">hidratasyon</span></div>
+      </a>
+      <a href="/akademi/beta-glucan/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Beta-Glukan</h3>
+          <p>Beta-Glukan, doğada bulunan bir polisakkaritten elde edilen güçlü bir nemlendirici bileşendir. Cildin neme iht…</p>
+        </div>
+        <div class="art-tags"><span class="tag">nemlendirme</span><span class="tag">doğal bileşen</span><span class="tag">hassas cilt</span></div>
+      </a>
+      <a href="/akademi/sodium-pca/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Sodyum PCA</h3>
+          <p>Sodyum PCA, cildin doğal nem faktörünün bir bileşeni olarak, derinlemesine nemlendirme sağlayan güçlü bir bile…</p>
+        </div>
+        <div class="art-tags"><span class="tag">nemlendirme</span><span class="tag">kuru cilt</span><span class="tag">doğal faktörler</span></div>
+      </a>
+    </div>
+  </section>
+  <section class="cat-section">
+    <h2 class="cat-heading">Antioksidan</h2>
+    <div class="art-grid">
+      <a href="/akademi/vitamin-c/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>C Vitamini</h3>
+          <p>C vitamini cildimizin en güçlü savunçularından biridir. Bu antioksidan içerik, ciltimizi gençleştirerek parlak…</p>
+        </div>
+        <div class="art-tags"><span class="tag">antioksidan</span><span class="tag">aydınlatma</span><span class="tag">kolajen desteği</span></div>
+      </a>
+      <a href="/akademi/tocopherol/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>E Vitamini (Tokoferol)</h3>
+          <p>E vitamini, cildin doğal koruma kalkanını destekleyen ve yaşlanma belirtilerine karşı koruyan güçlü bir antiok…</p>
+        </div>
+        <div class="art-tags"><span class="tag">antioksidan</span><span class="tag">yaşlanma önlemi</span><span class="tag">koruma</span></div>
+      </a>
+      <a href="/akademi/ferulic-acid/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Ferulik Asit</h3>
+          <p>Ferulik Asit doğal bir antioksidandır ve cildin serbest radikallere karşı korunmasına yardımcı olur. C vitamin…</p>
+        </div>
+        <div class="art-tags"><span class="tag">antioksidan</span><span class="tag">yaşlanma karşıtı</span><span class="tag">güneş hasarı koruması</span></div>
+      </a>
+      <a href="/akademi/coenzyme-q10/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Koenzim Q10 (Ubiquinon)</h3>
+          <p>Koenzim Q10, vücudunuzda doğal olarak bulunan bir antioksidandır ve cildin enerji kaynağı olarak görev yaparak…</p>
+        </div>
+        <div class="art-tags"><span class="tag">antioksidan</span><span class="tag">yaşlanma belirtileri</span><span class="tag">enerji</span></div>
+      </a>
+      <a href="/akademi/resveratrol/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Resveratrol</h3>
+          <p>Resveratrol, doğal bir antioksidan olarak cildi serbest radikallerden korur ve genç görünümünü destekleyen güç…</p>
+        </div>
+        <div class="art-tags"><span class="tag">antioksidan</span><span class="tag">yaşlanma karşıtı</span><span class="tag">cilt sağlığı</span></div>
+      </a>
+    </div>
+  </section>
+  <section class="cat-section">
+    <h2 class="cat-heading">Yatıştırıcı</h2>
+    <div class="art-grid">
+      <a href="/akademi/panthenol/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Panthenol (B5 Vitamini)</h3>
+          <p>Panthenol, cildin doğal nemlendiricilerinden biri olup, tahriş olmuş veya hasarlı ciltleri yatıştırır ve onarm…</p>
+        </div>
+        <div class="art-tags"><span class="tag">nemlendirici</span><span class="tag">yatıştırıcı</span><span class="tag">hassas cilt</span></div>
+      </a>
+      <a href="/akademi/allantoin/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Allantoin</h3>
+          <p>Allantoin, hassas ve tahriş olmuş cildi hızlıca rahatlatıcı bir yatıştırıcı bileşendir. Tüm cilt tiplerinde gü…</p>
+        </div>
+        <div class="art-tags"><span class="tag">yatıştırma</span><span class="tag">onarım</span><span class="tag">hassas cilt</span></div>
+      </a>
+      <a href="/akademi/centella-asiatica/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Centella Asiatica</h3>
+          <p>Centella Asiatica, Asya'dan gelen ve cilt bakımında yüzyıllardır kullanılan bir bitkidir. Sakinleştirici ve an…</p>
+        </div>
+        <div class="art-tags"><span class="tag">sakinleştirici</span><span class="tag">antioksidan</span><span class="tag">hassas cilt</span></div>
+      </a>
+      <a href="/akademi/aloe-vera/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Aloe Vera</h3>
+          <p>Doğadan esinlenmiş bir mucize içerik: Aloe vera, hassas ve tahriş görmüş cildi sakinleştirerek yatıştırır. Yük…</p>
+        </div>
+        <div class="art-tags"><span class="tag">yatıştırıcı</span><span class="tag">nemlendirici</span><span class="tag">hassas cilt</span></div>
+      </a>
+      <a href="/akademi/witch-hazel/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#FEF3C7;color:#B45309;">Dikkatli Kullan</span><span class="read-time">2 dk</span></div>
+          <h3>Hamamelis (Witch Hazel)</h3>
+          <p>Hamamelis, doğal bir bitki suyu olup, cildi yatıştırması ve sıkılaştırması ile bilinir. Özellikle iltihaplı ve…</p>
+        </div>
+        <div class="art-tags"><span class="tag">yatıştırıcı</span><span class="tag">doğal içerik</span><span class="tag">cildi temizleme</span></div>
+      </a>
+      <a href="/akademi/bisabolol/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Bisabolol</h3>
+          <p>Doğal kaynaktan elde edilen bisabolol, cildin tahriş ve kızarıklığını yatıştıran, hassas ciltler için ideal bi…</p>
+        </div>
+        <div class="art-tags"><span class="tag">yatıştırıcı</span><span class="tag">hassas cilt</span><span class="tag">doğal</span></div>
+      </a>
+      <a href="/akademi/oat-extract/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Yulaf Özü</h3>
+          <p>Yulaf özü, doğal kökenli ve hassas ciltte tahriş giderme yeteneğiyle bilinir. Enflamatuar cilt durumlarında ya…</p>
+        </div>
+        <div class="art-tags"><span class="tag">hassas cilt</span><span class="tag">antioksidan</span><span class="tag">tahriş giderici</span></div>
+      </a>
+      <a href="/akademi/mugwort/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Pelin Otu (Artemisia)</h3>
+          <p>Pelin Otu, yüzyıllardır cilt bakımında kullanılan doğal bir bileşendir. Tahriş olmuş cildi yatıştırmaya yardım…</p>
+        </div>
+        <div class="art-tags"><span class="tag">Yatıştırıcı</span><span class="tag">Doğal</span><span class="tag">Hassas Cilt</span></div>
+      </a>
+    </div>
+  </section>
+  <section class="cat-section">
+    <h2 class="cat-heading">Eksfolyan</h2>
+    <div class="art-grid">
+      <a href="/akademi/glycolic-acid/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#FEF3C7;color:#B45309;">Dikkatli Kullan</span><span class="read-time">2 dk</span></div>
+          <h3>Glikolik Asit (AHA)</h3>
+          <p>Glikolik asit, yüzün ölü cilt tabakalarını kaldırarak daha parlak ve genç bir görünüm sağlayan güçlü bir kimya…</p>
+        </div>
+        <div class="art-tags"><span class="tag">eksfolyan</span><span class="tag">parlaklık</span><span class="tag">hassas cilt</span></div>
+      </a>
+      <a href="/akademi/salicylic-acid/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#FEF3C7;color:#B45309;">Dikkatli Kullan</span><span class="read-time">2 dk</span></div>
+          <h3>Salisilik Asit (BHA)</h3>
+          <p>Salisilik asit, cilde uygulanabilen eksfolyan bileşenlerinden biri olup gözenekleri temizlemede ve düzensiz ci…</p>
+        </div>
+        <div class="art-tags"><span class="tag">eksfolyan</span><span class="tag">yağlı cilt</span><span class="tag">akneli cilt</span></div>
+      </a>
+      <a href="/akademi/lactic-acid/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#FEF3C7;color:#B45309;">Dikkatli Kullan</span><span class="read-time">2 dk</span></div>
+          <h3>Laktik Asit</h3>
+          <p>Laktik asit, alfa hidroksi asitler ailesinin doğal bir üyesi olarak cildin ölü hücrelerini uzaklaştırır ve dok…</p>
+        </div>
+        <div class="art-tags"><span class="tag">eksfolyan</span><span class="tag">parlaklık</span><span class="tag">nemlendiriciliği</span></div>
+      </a>
+      <a href="/akademi/mandelic-acid/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Mandelik Asit</h3>
+          <p>Mandelik asit, badem çekirdeğinden elde edilen doğal bir eksfolyan olarak cildinizi temizler ve parlak bir gör…</p>
+        </div>
+        <div class="art-tags"><span class="tag">eksfolyan</span><span class="tag">yaşlanma-belirtileri</span><span class="tag">cilt-yenilenmesi</span></div>
+      </a>
+      <a href="/akademi/gluconolactone/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Glukonolakton (PHA)</h3>
+          <p>Glukonolakton, ciltinizi yumuşak ve parlak hale getiren, hassas ciltler için de emniyetli bir kimyasal eksfoly…</p>
+        </div>
+        <div class="art-tags"><span class="tag">eksfolyan</span><span class="tag">PHA</span><span class="tag">hassas cilt</span></div>
+      </a>
+    </div>
+  </section>
+  <section class="cat-section">
+    <h2 class="cat-heading">Cilt Bariyeri</h2>
+    <div class="art-grid">
+      <a href="/akademi/ceramide/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Seramid</h3>
+          <p>Cilt bariyerinin yapı taşlarından biri olan seramid, kuruluğu azaltan ve cildi koruyucu bir içeriktir. İyi tol…</p>
+        </div>
+        <div class="art-tags"><span class="tag">cilt bariyeri</span><span class="tag">kuruluğa karşı</span><span class="tag">güvenli</span></div>
+      </a>
+    </div>
+  </section>
+  <section class="cat-section">
+    <h2 class="cat-heading">Koruyucu</h2>
+    <div class="art-grid">
+      <a href="/akademi/phenoxyethanol/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#FEF3C7;color:#B45309;">Dikkatli Kullan</span><span class="read-time">2 dk</span></div>
+          <h3>Fenoksietanol</h3>
+          <p>Fenoksietanol, kozmetik ürünlerinde yaygın olarak kullanılan sentetik bir koruyucu bileşendir. Ürünlerinizi bo…</p>
+        </div>
+        <div class="art-tags"><span class="tag">koruyucu</span><span class="tag">hassas cilt</span><span class="tag">kontakt dermatiti</span></div>
+      </a>
+    </div>
+  </section>
+  <section class="cat-section">
+    <h2 class="cat-heading">Genel</h2>
+    <div class="art-grid">
+      <a href="/akademi/fragrance/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#FEF3C7;color:#B45309;">Dikkatli Kullan</span><span class="read-time">2 dk</span></div>
+          <h3>Parfüm &amp; Kokular</h3>
+          <p>Parfümler cilt bakım ürünlerine hoş koku veren uçucu bileşenlerdir, ancak hassas ciltlerde tahriş ve alerji ri…</p>
+        </div>
+        <div class="art-tags"><span class="tag">parfüm</span><span class="tag">koku</span><span class="tag">tahriş riski</span></div>
+      </a>
+      <a href="/akademi/sunscreen-basics/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Güneş Koruyucular</h3>
+          <p>Güneş ışınlarından korumak için kimyasal ve fiziksel olmak üzere iki farklı filtre yöntemi vardır. Her biri ci…</p>
+        </div>
+        <div class="art-tags"><span class="tag">güneş koruması</span><span class="tag">UV filtresi</span><span class="tag">cilt sağlığı</span></div>
+      </a>
+      <a href="/akademi/zinc-oxide/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Çinko Oksit</h3>
+          <p>Çinko oksit, güneş ışınlarını yansıtan bir mineral içeriktir ve tüm cilt tipleri tarafından iyi tolere edilir.…</p>
+        </div>
+        <div class="art-tags"><span class="tag">güneş koruma</span><span class="tag">mineral koruma</span><span class="tag">hassas cilt</span></div>
+      </a>
+      <a href="/akademi/dimethicone/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Dimetikon (Silikonlar)</h3>
+          <p>Dimetikon, cilt bakım ürünlerinde sıkça kullanılan sentetik bir silikondur ve cildi düzgün, parlak ve nemli tu…</p>
+        </div>
+        <div class="art-tags"><span class="tag">silikolar</span><span class="tag">hidrasyon</span><span class="tag">nemlendirir</span></div>
+      </a>
+      <a href="/akademi/sodium-lauryl-sulfate/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#FEF3C7;color:#B45309;">Dikkatli Kullan</span><span class="read-time">2 dk</span></div>
+          <h3>Sodyum Lauril Sülfat (SLS)</h3>
+          <p>Sodyum lauril sülfat (SLS), günümüz temizleyici ürünlerinde yaygın olarak kullanılan güçlü bir temizleyici mad…</p>
+        </div>
+        <div class="art-tags"><span class="tag">temizleyici</span><span class="tag">hassas cilt</span><span class="tag">surfaktan</span></div>
+      </a>
+      <a href="/akademi/alcohol-denat/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#FEF3C7;color:#B45309;">Dikkatli Kullan</span><span class="read-time">2 dk</span></div>
+          <h3>Denatüre Alkol</h3>
+          <p>Kozmetik formulasyonlarda sıkça kullanılan denatüre alkol, hızlı kuruyan ürünlerin vazgeçilmez bileşenidir, an…</p>
+        </div>
+        <div class="art-tags"><span class="tag">solvent</span><span class="tag">kurutma etkisi</span><span class="tag">hassas cilt</span></div>
+      </a>
+      <a href="/akademi/propylene-glycol/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Propilen Glikol</h3>
+          <p>Propilen glikol, cilt bakım ürünlerinde sıkça kullanılan bir nemlendirici olup, cildi nemli ve yumuşak tutmaya…</p>
+        </div>
+        <div class="art-tags"><span class="tag">nemlendirici</span><span class="tag">cilt bakımı</span><span class="tag">güvenli bileşen</span></div>
+      </a>
+      <a href="/akademi/kaolin/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Kaolin (Kil)</h3>
+          <p>Kaolin, doğal kökenli bir kildür ve cilt temizliğinde yüzyıllardır kullanılmaktadır. Yağ emme özelliği sayesin…</p>
+        </div>
+        <div class="art-tags"><span class="tag">cilt-temizliği</span><span class="tag">yağlı-cilt</span><span class="tag">doğal-içerik</span></div>
+      </a>
+      <a href="/akademi/sea-kelp/" class="art-card">
+        <div class="art-card-top">
+          <div class="art-meta"><span class="safety-badge" style="background:#E8F5EE;color:#2E7D5E;">Güvenli</span><span class="read-time">2 dk</span></div>
+          <h3>Deniz Yosunu</h3>
+          <p>Atlantik'ten hasat edilen deniz yosunu, cildin nemlendirilmesi ve elastikiyetinin desteklenmesi için kullanıla…</p>
+        </div>
+        <div class="art-tags"><span class="tag">nemlenme</span><span class="tag">antioksidan</span><span class="tag">doğal</span></div>
+      </a>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="footer-row">
+    <a href="/" class="footer-brand">
+      <div class="brand-icon">
+        <svg viewBox="0 0 52 52" fill="none" aria-hidden="true">
+          <path d="M20 8V22L10 38C8.5 40.5 10.2 44 13 44H39C41.8 44 43.5 40.5 42 38L32 22V8" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M18 8H34" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      Simya Analiz
+    </a>
+    <div class="footer-links">
+      <a href="/akademi/">Akademi</a>
+      <a href="/privacy/">Gizlilik Politikası</a>
+      <a href="/privacy/#terms">Kullanım Koşulları</a>
+      <a href="mailto:info@simyaapp.com">İletişim</a>
+    </div>
+  </div>
+  <p class="footer-copy">© 2026 Simya Analiz · Tüm hakları saklıdır</p>
+</footer>
+<script>
+  const cards = Array.from(document.querySelectorAll('.art-card'));
+  const sections = Array.from(document.querySelectorAll('.cat-section'));
+  document.getElementById('search').addEventListener('input', function() {
+    const q = this.value.toLowerCase().trim();
+    if (!q) {
+      cards.forEach(c => c.classList.remove('hidden'));
+      sections.forEach(s => s.classList.remove('hidden'));
+      return;
+    }
+    cards.forEach(c => {
+      const text = c.textContent.toLowerCase();
+      c.classList.toggle('hidden', !text.includes(q));
+    });
+    sections.forEach(s => {
+      const visible = s.querySelectorAll('.art-card:not(.hidden)').length > 0;
+      s.classList.toggle('hidden', !visible);
+    });
+  });
+</script>
+</body>
+</html>

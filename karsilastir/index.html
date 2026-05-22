@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bileşen Karşılaştır — Simya Analiz</title>
+  <meta name="description" content="İki kozmetik içeriği yan yana karşılaştır. Güvenlik değerlendirmesi, rutin uyumluluğu ve birlikte kullanım uyarıları."/>
+  <meta name="robots" content="noai, noimageai"/>
+  <meta property="og:title" content="Bileşen Karşılaştır — Simya Analiz"/>
+  <meta property="og:description" content="İki kozmetik içeriği yan yana karşılaştır. Rutin uyumluluğu, güvenlik değerlendirmesi."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://simyaapp.com/karsilastir/"/>
+  <meta property="og:image" content="https://simyaapp.com/og-image.png"/>
+  <meta property="og:image:type" content="image/png"/>
+  <link rel="canonical" href="https://simyaapp.com/karsilastir/"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <style>
+    :root {
+      --primary: #6C5B4B; --accent: #A89482; --bg: #FBF9F8; --surface: #F5F3F3;
+      --border: #E8E4E0; --text: #2C2420; --muted: #8C7B72;
+      --green: #2E7D5E; --amber: #B45309; --red: #B91C1C;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #0F0D0C; --surface: #1A1614; --border: #2E2824; --text: #EDE9E6; --muted: #8A7870; --primary: #C4A68C; --accent: #A88A72; }
+      .topnav { background: #161210; border-bottom-color: #2E2824; }
+      .nav-brand { color: #D4B89A; }
+      .nav-cta { background: #6C5B4B !important; }
+      .nav-brand .brand-icon, .footer-brand .brand-icon { background: #6C5B4B !important; }
+      .comp-card { background: var(--surface); }
+      .comp-row:nth-child(even) { background: #16120F; }
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); }
+
+    /* Nav */
+    .topnav { position: sticky; top: 0; z-index: 100; background: #FBF9F8; border-bottom: 1px solid #E8E4E0; padding: 13px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 16px; color: #6C5B4B; text-decoration: none; }
+    .nav-brand .brand-icon { width: 32px; height: 32px; background: var(--primary); border-radius: 9px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .nav-brand .brand-icon svg { width: 18px; height: 18px; }
+    .nav-cta { background: var(--primary); color: #fff; text-decoration: none; padding: 9px 20px; border-radius: 10px; font-size: 14px; font-weight: 600; transition: opacity .15s; }
+    .nav-cta:hover { opacity: .84; }
+
+    /* Hero */
+    .hero { background: linear-gradient(160deg,#fff 0%,var(--bg) 60%); border-bottom: 1px solid var(--border); padding: 52px 24px 44px; text-align: center; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 6px; background: var(--surface); border: 1px solid var(--border); border-radius: 100px; padding: 5px 14px; font-size: 11px; font-weight: 700; color: var(--primary); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 18px; }
+    .hero h1 { font-size: clamp(26px, 4.5vw, 40px); font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; }
+    .hero h1 em { font-style: normal; color: var(--primary); }
+    .hero p { font-size: 16px; color: var(--muted); max-width: 440px; margin: 0 auto; line-height: 1.6; }
+
+    /* Picker */
+    .picker-wrap { max-width: 860px; margin: 0 auto; padding: 36px 24px 0; }
+    .picker-row { display: grid; grid-template-columns: 1fr 48px 1fr; gap: 12px; align-items: center; }
+    @media (max-width: 600px) {
+      .picker-row { grid-template-columns: 1fr; }
+      .swap-btn { justify-self: center; }
+    }
+    .picker-col label { display: block; font-size: 11px; font-weight: 700; color: var(--accent); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; }
+    .picker-col select {
+      width: 100%; padding: 14px 16px; border: 1.5px solid var(--border); border-radius: 14px;
+      font-size: 15px; font-weight: 500; background: var(--surface); color: var(--text);
+      appearance: none; cursor: pointer; outline: none; transition: border-color .15s;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238C7B72' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 14px center;
+      padding-right: 40px;
+    }
+    .picker-col select:focus { border-color: var(--primary); }
+    .swap-btn {
+      width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--border);
+      background: var(--surface); cursor: pointer; display: flex; align-items: center;
+      justify-content: center; font-size: 20px; color: var(--muted);
+      transition: border-color .15s, color .15s; flex-shrink: 0;
+    }
+    .swap-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+    /* Compatibility result */
+    .compat-wrap { max-width: 860px; margin: 20px auto 0; padding: 0 24px; }
+    .compat-box {
+      border-radius: 16px; padding: 18px 20px;
+      display: flex; align-items: flex-start; gap: 14px;
+    }
+    .compat-box.compatible   { background: #E8F5EE; border: 1px solid #A7D9BE; }
+    .compat-box.conflict     { background: #FEF2F2; border: 1px solid #FECACA; }
+    .compat-box.empty        { background: var(--surface); border: 1px solid var(--border); }
+    .compat-icon { font-size: 22px; flex-shrink: 0; line-height: 1.3; }
+    .compat-text h3 { font-size: 15px; font-weight: 700; margin-bottom: 5px; }
+    .compat-box.compatible   .compat-text h3 { color: var(--green); }
+    .compat-box.conflict     .compat-text h3 { color: var(--red); }
+    .compat-box.empty        .compat-text h3 { color: var(--muted); }
+    .compat-text p { font-size: 13px; line-height: 1.6; color: var(--text); }
+    .compat-text .tip { font-size: 12px; margin-top: 7px; color: var(--muted); font-style: italic; }
+
+    /* Comparison table */
+    .comp-wrap { max-width: 860px; margin: 24px auto 0; padding: 0 24px; }
+    .comp-card { background: #fff; border: 1px solid var(--border); border-radius: 20px; overflow: hidden; }
+    .comp-header { display: grid; grid-template-columns: 160px 1fr 1fr; }
+    .comp-header-cell {
+      padding: 16px 20px; font-size: 13px; font-weight: 700; color: var(--primary);
+      background: var(--surface); border-bottom: 1px solid var(--border);
+    }
+    .comp-header-cell:not(:last-child) { border-right: 1px solid var(--border); }
+    .comp-header-cell.label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+    .comp-row { display: grid; grid-template-columns: 160px 1fr 1fr; }
+    .comp-row:nth-child(even) { background: var(--surface); }
+    .comp-cell {
+      padding: 14px 20px; font-size: 14px; line-height: 1.55; color: var(--text);
+      display: flex; align-items: center;
+    }
+    .comp-cell:not(:last-child) { border-right: 1px solid var(--border); }
+    .comp-cell.row-label { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: 0.8px; text-transform: uppercase; }
+    .comp-cell.summary { font-size: 13px; color: var(--muted); align-items: flex-start; }
+    .safety-pill { font-size: 11px; font-weight: 700; border-radius: 6px; padding: 3px 9px; }
+    .pill-safe    { background: #E8F5EE; color: var(--green); }
+    .pill-caution { background: #FEF3C7; color: var(--amber); }
+    .pill-avoid   { background: #FEF2F2; color: var(--red); }
+    .pill-neutral { background: var(--surface); color: var(--muted); border: 1px solid var(--border); }
+    .empty-state { padding: 48px 20px; text-align: center; color: var(--muted); font-size: 15px; }
+    .comp-footer { display: grid; grid-template-columns: 160px 1fr 1fr; border-top: 1px solid var(--border); }
+    .comp-footer-cell { padding: 16px 20px; }
+    .comp-footer-cell:not(:last-child) { border-right: 1px solid var(--border); }
+    .comp-footer-cell a { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--primary); text-decoration: none; border-bottom: 1.5px solid var(--border); padding-bottom: 1px; transition: border-color .15s; }
+    .comp-footer-cell a:hover { border-color: var(--primary); }
+
+    /* CTA */
+    .cta-wrap { max-width: 580px; margin: 48px auto 80px; padding: 0 24px; text-align: center; }
+    .cta-wrap h2 { font-size: clamp(20px,3.5vw,30px); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 12px; }
+    .cta-wrap p { font-size: 15px; color: var(--muted); margin-bottom: 28px; line-height: 1.6; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 9px; background: var(--primary); color: #fff; text-decoration: none; padding: 14px 26px; border-radius: 13px; font-size: 15px; font-weight: 600; transition: opacity .15s, transform .15s; }
+    .btn-primary:hover { opacity: .87; transform: translateY(-1px); }
+    .btn-primary svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--border); padding: 28px 24px; }
+    .footer-row { max-width: 880px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-brand { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 15px; color: var(--primary); text-decoration: none; }
+    .footer-brand .brand-icon { width: 26px; height: 26px; border-radius: 7px; background: var(--primary); display: flex; align-items: center; justify-content: center; }
+    .footer-brand .brand-icon svg { width: 14px; height: 14px; }
+    .footer-links { display: flex; gap: 22px; flex-wrap: wrap; }
+    .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color .15s; }
+    .footer-links a:hover { color: var(--primary); }
+    .footer-copy { max-width: 880px; margin: 16px auto 0; padding-top: 16px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); text-align: center; }
+  </style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="/" class="nav-brand">
+    <div class="brand-icon">
+      <svg viewBox="0 0 52 52" fill="none" aria-hidden="true">
+        <path d="M20 8V22L10 38C8.5 40.5 10.2 44 13 44H39C41.8 44 43.5 40.5 42 38L32 22V8" stroke="white" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M18 8H34" stroke="white" stroke-width="3.2" stroke-linecap="round"/>
+        <circle cx="20" cy="34" r="3" fill="white" opacity="0.55"/>
+      </svg>
+    </div>
+    Simya Analiz
+  </a>
+  <a href="https://apps.apple.com/tr/app/simya-analiz/id6761561263" class="nav-cta">App Store</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">✦ Bileşen Karşılaştır</div>
+  <h1>İki içerik<br><em>yan yana.</em></h1>
+  <p>Güvenlik değerlendirmesi, rutin uyumluluğu ve birlikte kullanım uyarıları.</p>
+</div>
+
+<div class="picker-wrap">
+  <div class="picker-row">
+    <div class="picker-col">
+      <label for="sel-a">1. İçerik</label>
+      <select id="sel-a" aria-label="Birinci içerik"></select>
+    </div>
+    <button class="swap-btn" id="swap-btn" aria-label="İçerikleri yer değiştir" title="Yer değiştir">⇄</button>
+    <div class="picker-col">
+      <label for="sel-b">2. İçerik</label>
+      <select id="sel-b" aria-label="İkinci içerik"></select>
+    </div>
+  </div>
+</div>
+
+<div class="compat-wrap">
+  <div class="compat-box empty" id="compat-box">
+    <span class="compat-icon">↑</span>
+    <div class="compat-text">
+      <h3>İki içerik seç</h3>
+      <p>Seçtikten sonra rutin uyumluluğu burada görünecek.</p>
+    </div>
+  </div>
+</div>
+
+<div class="comp-wrap">
+  <div class="comp-card" id="comp-card">
+    <div class="empty-state">İki farklı içerik seçince karşılaştırma tablosu burada görünür.</div>
+  </div>
+</div>
+
+<div class="cta-wrap">
+  <h2>Ürünü doğrudan analiz et</h2>
+  <p>Barkod tara veya ambalajı fotoğrafla — 27.000+ INCI, cilt tipine özel uyarılar, tamamen ücretsiz.</p>
+  <a href="https://apps.apple.com/tr/app/simya-analiz/id6761561263" class="btn-primary">
+    <svg viewBox="0 0 22 22" fill="currentColor" aria-hidden="true">
+      <path d="M16.26 11.29c-.03-3.22 2.63-4.78 2.75-4.85-1.5-2.19-3.83-2.49-4.65-2.52-1.97-.2-3.86 1.17-4.86 1.17-1.01 0-2.57-1.14-4.23-1.11C3.14 4.02 1.3 5.18.44 6.97c-1.75 3.04-.45 7.55 1.25 10.02.83 1.21 1.82 2.56 3.12 2.51 1.25-.05 1.73-.81 3.24-.81 1.51 0 1.94.81 3.27.79 1.35-.02 2.2-1.22 3.02-2.44.96-1.4 1.35-2.76 1.37-2.83-.03-.01-2.62-1.01-2.65-4.02zM13.55 3.14c.69-.84 1.16-2 1.03-3.16-.99.04-2.19.66-2.9 1.49-.64.74-1.19 1.92-1.04 3.05 1.1.08 2.22-.56 2.91-1.38z"/>
+    </svg>
+    App Store'dan İndir
+  </a>
+</div>
+
+<footer>
+  <div class="footer-row">
+    <a href="/" class="footer-brand">
+      <div class="brand-icon">
+        <svg viewBox="0 0 52 52" fill="none" aria-hidden="true">
+          <path d="M20 8V22L10 38C8.5 40.5 10.2 44 13 44H39C41.8 44 43.5 40.5 42 38L32 22V8" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M18 8H34" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      Simya Analiz
+    </a>
+    <div class="footer-links">
+      <a href="/akademi/">Akademi</a>
+      <a href="/karsilastir/">Karşılaştır</a>
+      <a href="/privacy/">Gizlilik</a>
+      <a href="mailto:info@simyaapp.com">İletişim</a>
+    </div>
+  </div>
+  <p class="footer-copy">© 2026 Simya Analiz · Tüm hakları saklıdır · İçerikler izinsiz kopyalanamaz</p>
+</footer>
+
+<script>
+const INGREDIENTS = [
+  {slug:"hyaluronic-acid",   title:"Hyaluronik Asit",         inci:"Sodium Hyaluronate",             cat:"Nemlendirici",   rating:"safe",    summary:"Ağırlığının 1000 katı suyu tutabilen, cildi doldurarak pürüzsüzleştiren nem deposu."},
+  {slug:"niacinamide",       title:"Niasinamid (B3 Vitamini)",inci:"Niacinamide",                    cat:"Aktif İçerik",   rating:"safe",    summary:"Cilt bariyerini güçlendiren, sebum dengesini sağlayan çok yönlü aktif."},
+  {slug:"retinol",           title:"Retinol",                 inci:"Retinol",                        cat:"Aktif İçerik",   rating:"caution", summary:"Yaşlanma belirtilerini azaltan, hücre yenilemesini hızlandıran en güçlü aktiflerden biri."},
+  {slug:"glycerin",          title:"Gliserin",                inci:"Glycerin",                       cat:"Nemlendirici",   rating:"safe",    summary:"Havadaki nemi çekerek cilde bağlayan, her formülasyonda güvenle kullanılan humektant."},
+  {slug:"ceramide",          title:"Seramid",                 inci:"Ceramide NP",                    cat:"Cilt Bariyeri",  rating:"safe",    summary:"Cilt bariyerinin yapı taşı. Bariyer fonksiyonunu onarır ve kuruluğu giderir."},
+  {slug:"glycolic-acid",     title:"Glikolik Asit (AHA)",     inci:"Glycolic Acid",                  cat:"Eksfolyan",      rating:"caution", summary:"Ölü cilt tabakasını kaldırarak tonu açan kimyasal eksfolyan."},
+  {slug:"salicylic-acid",    title:"Salisilik Asit (BHA)",    inci:"Salicylic Acid",                 cat:"Eksfolyan",      rating:"caution", summary:"Gözeneklere nüfuz ederek siyah noktaları ve sivilceleri hedef alan BHA."},
+  {slug:"vitamin-c",         title:"C Vitamini",              inci:"Ascorbic Acid",                  cat:"Antioksidan",    rating:"safe",    summary:"Leke açıcı, kolajen sentezini destekleyen antioksidan."},
+  {slug:"panthenol",         title:"Panthenol (B5 Vitamini)", inci:"Panthenol",                      cat:"Yatıştırıcı",   rating:"safe",    summary:"Cildi yatıştıran, iyileşmeyi destekleyen ve nem tutan pro-vitamin B5."},
+  {slug:"fragrance",         title:"Parfüm & Kokular",        inci:"Parfum",                         cat:"Genel",          rating:"caution", summary:"Hassas ciltlerde reaksiyon riskine yol açabilen koku bileşenleri."},
+  {slug:"phenoxyethanol",    title:"Fenoksietanol",           inci:"Phenoxyethanol",                 cat:"Koruyucu",       rating:"caution", summary:"AB limitli, yaygın kullanılan koruyucu. %1 sınırında güvenli."},
+  {slug:"bakuchiol",         title:"Bakuchiol",               inci:"Bakuchiol",                      cat:"Aktif İçerik",   rating:"safe",    summary:"Retinol'ün bitkisel alternatifi. Hamilelikte de kullanılabilir."},
+  {slug:"azelaic-acid",      title:"Azelaik Asit",            inci:"Azelaic Acid",                   cat:"Aktif İçerik",   rating:"safe",    summary:"Leke ve rozase tedavisinde etkili, çok tolere edilebilir aktif."},
+  {slug:"kojic-acid",        title:"Kojik Asit",              inci:"Kojic Acid",                     cat:"Aktif İçerik",   rating:"caution", summary:"Melanin sentezini yavaşlatan leke karşıtı aktif. Güneş koruması şart."},
+  {slug:"peptides",          title:"Peptidler",               inci:"Palmitoyl Pentapeptide-4",       cat:"Aktif İçerik",   rating:"safe",    summary:"Kolajen sentezini destekleyen, sıkılaştırıcı ve anti-aging aktifler."},
+  {slug:"squalane",          title:"Skualen",                 inci:"Squalane",                       cat:"Nemlendirici",   rating:"safe",    summary:"Hafif, gözenek tıkamayan bitkisel kaynaklı emoliyent."},
+  {slug:"zinc-oxide",        title:"Çinko Oksit",             inci:"Zinc Oxide",                     cat:"Genel",          rating:"safe",    summary:"Mineral güneş filtresi. UVA+UVB koruma, hassas ciltler için uygun."},
+  {slug:"lactic-acid",       title:"Laktik Asit",             inci:"Lactic Acid",                    cat:"Eksfolyan",      rating:"caution", summary:"Nazik AHA. Glikolikten hafif, nemli eksfolyan ve aydınlatıcı."},
+  {slug:"allantoin",         title:"Allantoin",               inci:"Allantoin",                      cat:"Yatıştırıcı",   rating:"safe",    summary:"Tahriş ve kızarıklığı gideren, hücre yenilenmesini destekleyen yatıştırıcı."},
+  {slug:"centella-asiatica", title:"Centella Asiatica",       inci:"Centella Asiatica Extract",      cat:"Yatıştırıcı",   rating:"safe",    summary:"Cilt onarımını destekleyen, yatıştırıcı ve antioksidan bitki özü."},
+  {slug:"alpha-arbutin",     title:"Alpha-Arbutin",           inci:"Alpha-Arbutin",                  cat:"Aktif İçerik",   rating:"safe",    summary:"Leke ve pigmentasyon sorunlarına karşı etkili, güvenli aydınlatıcı."},
+  {slug:"tocopherol",        title:"E Vitamini (Tokoferol)",  inci:"Tocopherol",                     cat:"Antioksidan",    rating:"safe",    summary:"Hücre hasarına karşı koruyan yağda çözünür antioksidan."},
+  {slug:"adenosine",         title:"Adenozin",                inci:"Adenosine",                      cat:"Aktif İçerik",   rating:"safe",    summary:"Kırışıklık azaltıcı, yatıştırıcı ve bariyer onarıcı nükleozid."},
+  {slug:"caffeine",          title:"Kafein",                  inci:"Caffeine",                       cat:"Aktif İçerik",   rating:"safe",    summary:"Göz altı morluklarını ve şişliği azaltan, antioksidan aktif."},
+  {slug:"aloe-vera",         title:"Aloe Vera",               inci:"Aloe Barbadensis Leaf Juice",    cat:"Yatıştırıcı",   rating:"safe",    summary:"Güneş yanığı ve tahrişe karşı ferahlatan, nemli bitkisel içerik."},
+  {slug:"tea-tree",          title:"Çay Ağacı Yağı",          inci:"Melaleuca Alternifolia Leaf Oil",cat:"Aktif İçerik",   rating:"caution", summary:"Sivilce karşıtı antimikrobiyal. Seyreltilmeden kullanmayın."},
+  {slug:"tranexamic-acid",   title:"Traneksamik Asit",        inci:"Tranexamic Acid",                cat:"Aktif İçerik",   rating:"safe",    summary:"Hiperpigmentasyon ve melazma tedavisinde güçlü ve güvenli aktif."},
+  {slug:"ferulic-acid",      title:"Ferulik Asit",            inci:"Ferulic Acid",                   cat:"Antioksidan",    rating:"safe",    summary:"C ve E vitamini ile sinerjistik çalışan güçlü bitki antioksidanı."},
+  {slug:"benzoyl-peroxide",  title:"Benzoil Peroksit",        inci:"Benzoyl Peroxide",               cat:"Aktif İçerik",   rating:"caution", summary:"Sivilce bakterisini öldüren güçlü aktif. Miktara dikkat edin."},
+  {slug:"mandelic-acid",     title:"Mandelik Asit",           inci:"Mandelic Acid",                  cat:"Eksfolyan",      rating:"caution", summary:"En nazik AHA. Badem kaynaklı, koyu ten ve hassas cilt için uygun."},
+  {slug:"shea-butter",       title:"Shea Yağı",               inci:"Butyrospermum Parkii Butter",    cat:"Nemlendirici",   rating:"safe",    summary:"Zengin yağ asiti profiliyle derin nemlendirme sağlayan doğal emoliyent."},
+  {slug:"jojoba-oil",        title:"Jojoba Yağı",             inci:"Simmondsia Chinensis Seed Oil",  cat:"Nemlendirici",   rating:"safe",    summary:"Cilt sebumuna yapısal olarak benzeyen, dengeleyici ve hafif yağ."},
+  {slug:"dimethicone",       title:"Dimetikon (Silikonlar)",  inci:"Dimethicone",                    cat:"Genel",          rating:"safe",    summary:"Cilde ipeksi his veren, gözenekleri tıkamayan silikonlu emoliyent."},
+  {slug:"sodium-lauryl-sulfate",title:"SLS",                  inci:"Sodium Lauryl Sulfate",          cat:"Genel",          rating:"caution", summary:"Köpük yapıcı tensid. Uzun süreli kullanımda bariyer hasarına yol açabilir."},
+  {slug:"alcohol-denat",     title:"Denatüre Alkol",          inci:"Alcohol Denat.",                 cat:"Genel",          rating:"caution", summary:"Hızlı kurutan, yüksek konsantrasyonda bariyer bozucu olabilen alkol türü."},
+  {slug:"snail-mucin",       title:"Salyangoz Salgısı",       inci:"Snail Secretion Filtrate",       cat:"Aktif İçerik",   rating:"safe",    summary:"Onarıcı, nemli ve cilt bariyerini destekleyen popüler K-beauty içeriği."},
+  {slug:"collagen",          title:"Kollajen",                inci:"Hydrolyzed Collagen",            cat:"Aktif İçerik",   rating:"safe",    summary:"Nemlendirici etki sağlayan hidrolize kollajen. Topikal absorpsiyon sınırlı."},
+  {slug:"urea",              title:"Üre (Karbamid)",          inci:"Urea",                           cat:"Nemlendirici",   rating:"safe",    summary:"Kuru cilt ve egzama için güçlü nem tutucu ve hafif eksfolyan."},
+  {slug:"retinyl-palmitate", title:"Retinyl Palmitat",        inci:"Retinyl Palmitate",              cat:"Aktif İçerik",   rating:"caution", summary:"Retinol'den hafif, yavaş dönüşüm gösteren A vitamini türevi."},
+  {slug:"beta-glucan",       title:"Beta-Glukan",             inci:"Beta-Glucan",                    cat:"Nemlendirici",   rating:"safe",    summary:"Derin nemi kilitleyen, bariyer onarımını destekleyen polisakarit."},
+];
+
+// Conflict pairs — from RoutineConflictChecker (routine.dart)
+const CONFLICTS = [
+  {
+    g1: ["niacinamide"],
+    g2: ["vitamin-c"],
+    msg: "Niacinamide ve C Vitamini aynı rutinde kullanımı tartışmalı",
+    tip: "Birkaç dakika ara verin veya C Vitamini'ni sabah, Niacinamide'i akşam rutinine alın."
+  },
+  {
+    g1: ["retinol", "retinyl-palmitate"],
+    g2: ["glycolic-acid", "lactic-acid", "mandelic-acid"],
+    msg: "Retinol + AHA birlikte cilt hassasiyetini artırabilir",
+    tip: "Retinol'ü akşam, AHA'yı sabah rutinine alın."
+  },
+  {
+    g1: ["retinol", "retinyl-palmitate"],
+    g2: ["salicylic-acid"],
+    msg: "Retinol + Salisilik Asit birlikte kullanımı tahriş yapabilir",
+    tip: "Salisilik Asit'i sabah, Retinol'ü akşam rutinine alın."
+  },
+  {
+    g1: ["retinol", "retinyl-palmitate"],
+    g2: ["vitamin-c"],
+    msg: "Retinol + C Vitamini aynı seansta kararsızlığa yol açabilir",
+    tip: "C Vitamini'ni sabah, Retinol'ü akşam rutinine alın."
+  },
+  {
+    g1: ["benzoyl-peroxide"],
+    g2: ["retinol", "retinyl-palmitate"],
+    msg: "Benzoil Peroksit Retinol'ü etkisiz hale getirebilir",
+    tip: "Birini sabah, diğerini akşam rutinine alın; aynı seansta kullanmayın."
+  },
+  {
+    g1: ["glycolic-acid", "lactic-acid", "mandelic-acid"],
+    g2: ["salicylic-acid"],
+    msg: "Birden fazla eksfolyan aynı rutinde cilt bariyerini bozabilir",
+    tip: "AHA'yı sabah, BHA'yı (Salisilik Asit) akşam rutinine alın."
+  },
+];
+
+const SAFETY_LABELS = { safe:"Güvenli", caution:"Dikkatli Kullan", avoid:"Kaçın", neutral:"Nötr" };
+const PILL_CLASS    = { safe:"pill-safe", caution:"pill-caution", avoid:"pill-avoid", neutral:"pill-neutral" };
+const CAT_ORDER = ["Aktif İçerik","Nemlendirici","Antioksidan","Yatıştırıcı","Eksfolyan","Cilt Bariyeri","Koruyucu","Genel"];
+
+// Build grouped <optgroup> select options
+function buildSelect(selectEl, selectedSlug) {
+  selectEl.innerHTML = "";
+  const groups = {};
+  INGREDIENTS.forEach(i => {
+    (groups[i.cat] = groups[i.cat] || []).push(i);
+  });
+  CAT_ORDER.forEach(cat => {
+    if (!groups[cat]) return;
+    const og = document.createElement("optgroup");
+    og.label = cat;
+    groups[cat].forEach(i => {
+      const opt = document.createElement("option");
+      opt.value = i.slug;
+      opt.textContent = i.title;
+      if (i.slug === selectedSlug) opt.selected = true;
+      og.appendChild(opt);
+    });
+    selectEl.appendChild(og);
+  });
+}
+
+function findIngredient(slug) {
+  return INGREDIENTS.find(i => i.slug === slug) || null;
+}
+
+function checkConflict(slugA, slugB) {
+  for (const c of CONFLICTS) {
+    const aInG1 = c.g1.includes(slugA), aInG2 = c.g2.includes(slugA);
+    const bInG1 = c.g1.includes(slugB), bInG2 = c.g2.includes(slugB);
+    if ((aInG1 && bInG2) || (aInG2 && bInG1)) return c;
+  }
+  return null;
+}
+
+function updateCompat(slugA, slugB) {
+  const box = document.getElementById("compat-box");
+  if (!slugA || !slugB || slugA === slugB) {
+    box.className = "compat-box empty";
+    box.innerHTML = `<span class="compat-icon">↑</span><div class="compat-text"><h3>İki farklı içerik seç</h3><p>Seçtikten sonra rutin uyumluluğu burada görünecek.</p></div>`;
+    return;
+  }
+  const conflict = checkConflict(slugA, slugB);
+  if (conflict) {
+    box.className = "compat-box conflict";
+    box.innerHTML = `<span class="compat-icon">⚠️</span><div class="compat-text"><h3>${conflict.msg}</h3><p class="tip">💡 ${conflict.tip}</p></div>`;
+  } else {
+    box.className = "compat-box compatible";
+    box.innerHTML = `<span class="compat-icon">✓</span><div class="compat-text"><h3>Rutin uyumluluğu — sorun yok</h3><p>Bu iki içerik aynı rutin veya seansta birlikte kullanılabilir.</p></div>`;
+  }
+}
+
+function updateTable(slugA, slugB) {
+  const card = document.getElementById("comp-card");
+  const a = findIngredient(slugA);
+  const b = findIngredient(slugB);
+
+  if (!a || !b || slugA === slugB) {
+    card.innerHTML = `<div class="empty-state">İki farklı içerik seçince karşılaştırma tablosu burada görünür.</div>`;
+    return;
+  }
+
+  const row = (label, va, vb) =>
+    `<div class="comp-row">
+       <div class="comp-cell row-label">${label}</div>
+       <div class="comp-cell">${va}</div>
+       <div class="comp-cell">${vb}</div>
+     </div>`;
+
+  const pill = i => `<span class="safety-pill ${PILL_CLASS[i.rating]||'pill-neutral'}">${SAFETY_LABELS[i.rating]||'Nötr'}</span>`;
+
+  card.innerHTML = `
+    <div class="comp-header">
+      <div class="comp-header-cell label"></div>
+      <div class="comp-header-cell">${a.title}</div>
+      <div class="comp-header-cell">${b.title}</div>
+    </div>
+    ${row("Güvenlik",  pill(a), pill(b))}
+    ${row("Kategori",  a.cat,   b.cat)}
+    ${row("INCI Adı",  `<span style="font-size:12px;color:var(--muted);font-style:italic">${a.inci}</span>`, `<span style="font-size:12px;color:var(--muted);font-style:italic">${b.inci}</span>`)}
+    <div class="comp-row">
+      <div class="comp-cell row-label">Özet</div>
+      <div class="comp-cell summary">${a.summary}</div>
+      <div class="comp-cell summary">${b.summary}</div>
+    </div>
+    <div class="comp-footer">
+      <div class="comp-footer-cell"></div>
+      <div class="comp-footer-cell"><a href="/akademi/${a.slug}/">Detaylı bilgi →</a></div>
+      <div class="comp-footer-cell"><a href="/akademi/${b.slug}/">Detaylı bilgi →</a></div>
+    </div>`;
+}
+
+function updateURL(slugA, slugB) {
+  const params = new URLSearchParams();
+  if (slugA) params.set("a", slugA);
+  if (slugB) params.set("b", slugB);
+  history.replaceState(null, "", "?" + params.toString());
+
+  // Update page title for shareability
+  const a = findIngredient(slugA), b = findIngredient(slugB);
+  if (a && b && slugA !== slugB) {
+    document.title = `${a.title} ve ${b.title} karşılaştırması — Simya Analiz`;
+  } else {
+    document.title = "Bileşen Karşılaştır — Simya Analiz";
+  }
+}
+
+function render() {
+  const slugA = document.getElementById("sel-a").value;
+  const slugB = document.getElementById("sel-b").value;
+  updateCompat(slugA, slugB);
+  updateTable(slugA, slugB);
+  updateURL(slugA, slugB);
+}
+
+// Init
+const params = new URLSearchParams(location.search);
+const initA = params.get("a") || "niacinamide";
+const initB = params.get("b") || "retinol";
+
+buildSelect(document.getElementById("sel-a"), initA);
+buildSelect(document.getElementById("sel-b"), initB);
+
+document.getElementById("sel-a").addEventListener("change", render);
+document.getElementById("sel-b").addEventListener("change", render);
+document.getElementById("swap-btn").addEventListener("click", () => {
+  const sa = document.getElementById("sel-a");
+  const sb = document.getElementById("sel-b");
+  const tmp = sa.value;
+  sa.value = sb.value;
+  sb.value = tmp;
+  render();
+});
+
+render();
+</script>
+</body>
+</html>
