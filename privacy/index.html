@@ -24,7 +24,26 @@
       --border:    #E8E4E0;
       --text:      #2C2420;
       --muted:     #8C7B72;
+      --card-bg:   #ffffff;
+      --body-text: #4A3F38;
       --radius:    16px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary: #C4A68C; --accent: #A88A72;
+        --bg: #0F0D0C; --surface: #1C1917; --border: #302B27;
+        --text: #EDE9E6; --muted: #A89888;
+        --card-bg: #1C1917; --body-text: #C4B4A8;
+      }
+      .topnav { background: #161210; border-bottom-color: #302B27; }
+      .topnav-brand { color: #D4B89A; }
+      .topnav-back { border-color: #302B27; color: #A89888; }
+      .topnav-back:hover { color: #C4A68C; border-color: #C4A68C; }
+      header { background: #1C1917; }
+      nav.tabs { background: #161210; border-bottom-color: #302B27; }
+      .disclaimer-banner { background: #2A1A0A; border-color: #5C3000; }
+      .disclaimer-banner p { color: #D4A87A; }
+      footer { background: #0F0D0C; }
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -159,7 +178,7 @@
 
     /* ── Cards ── */
     .card {
-      background: #fff;
+      background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 24px;
@@ -180,7 +199,7 @@
     }
     .card p, .card li {
       font-size: 14px;
-      color: #4A3F38;
+      color: var(--body-text);
       line-height: 1.7;
     }
     .card ul {
@@ -213,7 +232,7 @@
       align-items: flex-start;
       margin-bottom: 20px;
       font-size: 14px;
-      color: #4A3F38;
+      color: var(--body-text);
     }
     .steps li::before {
       content: counter(step);
@@ -239,7 +258,7 @@
     }
     @media (max-width: 480px) { .contact-grid { grid-template-columns: 1fr; } }
     .contact-card {
-      background: #fff;
+      background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 18px 20px;
