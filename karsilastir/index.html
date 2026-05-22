@@ -14,58 +14,100 @@
   <meta property="og:image:type" content="image/png"/>
   <link rel="canonical" href="https://simyaapp.com/karsilastir/"/>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <script>
+    (function(){
+      var t = localStorage.getItem('simya-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
   <style>
     :root {
       --primary: #6C5B4B; --accent: #A89482; --bg: #FBF9F8; --surface: #F5F3F3;
       --border: #E8E4E0; --text: #2C2420; --muted: #8C7B72;
       --green: #2E7D5E; --amber: #B45309; --red: #B91C1C;
     }
+    @media (prefers-color-scheme: dark) { html:not([data-theme="light"]) { --_dark: 1; } }
+    html[data-theme="dark"] { --_dark: 1; }
     @media (prefers-color-scheme: dark) {
-      :root {
+      html:not([data-theme="light"]) {
         --bg: #0F0D0C; --surface: #1C1917; --border: #302B27;
         --text: #EDE9E6; --muted: #A89888;
         --primary: #C4A68C; --accent: #A88A72;
         --green: #4ABA8A; --amber: #D4821A; --red: #E05252;
       }
-      .topnav { background: #161210; border-bottom-color: #302B27; }
-      .nav-brand { color: #D4B89A; }
-      .nav-cta { background: #6C5B4B !important; }
-      .nav-brand .brand-icon, .footer-brand .brand-icon { background: #6C5B4B !important; }
-      .hero { background: linear-gradient(160deg,#1C1917 0%,#0F0D0C 60%); }
-
-      /* Comparison table */
-      .comp-card { background: #1C1917; border-color: #302B27; }
-      .comp-header-cell { background: #252019; color: #C4A68C; border-color: #302B27; }
-      .comp-row:nth-child(even) { background: #181512; }
-      .comp-row:nth-child(odd)  { background: #1C1917; }
-      .comp-cell { border-color: #302B27; color: var(--text); }
-      .comp-cell.row-label { color: #A89888; }
-      .comp-cell.summary { color: #C4B4A8; }
-      .comp-footer { border-color: #302B27; background: #1C1917; }
-      .comp-footer-cell { border-color: #302B27; }
-
-      /* Safety pills — darker backgrounds for dark mode */
-      .pill-safe    { background: #1A3D2E; color: #4ABA8A; border: 1px solid #2A5C42; }
-      .pill-caution { background: #3D2800; color: #D4821A; border: 1px solid #5C3D00; }
-      .pill-avoid   { background: #3D1010; color: #E05252; border: 1px solid #5C1A1A; }
-      .pill-neutral { background: #252019; color: #A89888; border-color: #302B27; }
-
-      /* Compat boxes */
-      .compat-box.compatible { background: #122B1E; border-color: #1E4A30; }
-      .compat-box.compatible .compat-text h3 { color: #4ABA8A; }
-      .compat-box.compatible .compat-text p  { color: #C4D8CB; }
-      .compat-box.conflict   { background: #2D1010; border-color: #4A1A1A; }
-      .compat-box.conflict .compat-text h3   { color: #E05252; }
-      .compat-box.conflict .compat-text p    { color: #D4B8B8; }
-      .compat-box.empty { background: #1C1917; border-color: #302B27; }
-      .compat-box.empty .compat-text h3 { color: #A89888; }
-
-      /* Picker */
-      .picker-col select { background: #1C1917; border-color: #302B27; color: var(--text); }
-      .picker-col select:focus { border-color: #C4A68C; }
-      .swap-btn { background: #1C1917; border-color: #302B27; color: #A89888; }
-      .swap-btn:hover { border-color: #C4A68C; color: #C4A68C; }
     }
+    html[data-theme="dark"] {
+      --bg: #0F0D0C; --surface: #1C1917; --border: #302B27;
+      --text: #EDE9E6; --muted: #A89888;
+      --primary: #C4A68C; --accent: #A88A72;
+      --green: #4ABA8A; --amber: #D4821A; --red: #E05252;
+    }
+    @media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .topnav { background: #161210; border-bottom-color: #302B27; } }
+    html[data-theme="dark"] .topnav { background: #161210; border-bottom-color: #302B27; }
+    @media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .nav-brand { color: #D4B89A; } }
+    html[data-theme="dark"] .nav-brand { color: #D4B89A; }
+    @media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .nav-cta { background: #6C5B4B !important; } }
+    html[data-theme="dark"] .nav-cta { background: #6C5B4B !important; }
+    @media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .nav-brand .brand-icon, html:not([data-theme="light"]) .footer-brand .brand-icon { background: #6C5B4B !important; } }
+    html[data-theme="dark"] .nav-brand .brand-icon, html[data-theme="dark"] .footer-brand .brand-icon { background: #6C5B4B !important; }
+    @media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .hero { background: linear-gradient(160deg,#1C1917 0%,#0F0D0C 60%); } }
+    html[data-theme="dark"] .hero { background: linear-gradient(160deg,#1C1917 0%,#0F0D0C 60%); }
+    @media (prefers-color-scheme: dark) {
+      html:not([data-theme="light"]) .comp-card { background: #1C1917; border-color: #302B27; }
+      html:not([data-theme="light"]) .comp-header-cell { background: #252019; color: #C4A68C; border-color: #302B27; }
+      html:not([data-theme="light"]) .comp-row:nth-child(even) { background: #181512; }
+      html:not([data-theme="light"]) .comp-row:nth-child(odd)  { background: #1C1917; }
+      html:not([data-theme="light"]) .comp-cell { border-color: #302B27; color: var(--text); }
+      html:not([data-theme="light"]) .comp-cell.row-label { color: #A89888; }
+      html:not([data-theme="light"]) .comp-cell.summary { color: #C4B4A8; }
+      html:not([data-theme="light"]) .comp-footer { border-color: #302B27; background: #1C1917; }
+      html:not([data-theme="light"]) .comp-footer-cell { border-color: #302B27; }
+      html:not([data-theme="light"]) .pill-safe    { background: #1A3D2E; color: #4ABA8A; border: 1px solid #2A5C42; }
+      html:not([data-theme="light"]) .pill-caution { background: #3D2800; color: #D4821A; border: 1px solid #5C3D00; }
+      html:not([data-theme="light"]) .pill-avoid   { background: #3D1010; color: #E05252; border: 1px solid #5C1A1A; }
+      html:not([data-theme="light"]) .pill-neutral { background: #252019; color: #A89888; border-color: #302B27; }
+      html:not([data-theme="light"]) .compat-box.compatible { background: #122B1E; border-color: #1E4A30; }
+      html:not([data-theme="light"]) .compat-box.compatible .compat-text h3 { color: #4ABA8A; }
+      html:not([data-theme="light"]) .compat-box.compatible .compat-text p  { color: #C4D8CB; }
+      html:not([data-theme="light"]) .compat-box.conflict   { background: #2D1010; border-color: #4A1A1A; }
+      html:not([data-theme="light"]) .compat-box.conflict .compat-text h3   { color: #E05252; }
+      html:not([data-theme="light"]) .compat-box.conflict .compat-text p    { color: #D4B8B8; }
+      html:not([data-theme="light"]) .compat-box.empty { background: #1C1917; border-color: #302B27; }
+      html:not([data-theme="light"]) .compat-box.empty .compat-text h3 { color: #A89888; }
+      html:not([data-theme="light"]) .picker-col select { background: #1C1917; border-color: #302B27; color: var(--text); }
+      html:not([data-theme="light"]) .picker-col select:focus { border-color: #C4A68C; }
+      html:not([data-theme="light"]) .swap-btn { background: #1C1917; border-color: #302B27; color: #A89888; }
+      html:not([data-theme="light"]) .swap-btn:hover { border-color: #C4A68C; color: #C4A68C; }
+    }
+    html[data-theme="dark"] .comp-card { background: #1C1917; border-color: #302B27; }
+    html[data-theme="dark"] .comp-header-cell { background: #252019; color: #C4A68C; border-color: #302B27; }
+    html[data-theme="dark"] .comp-row:nth-child(even) { background: #181512; }
+    html[data-theme="dark"] .comp-row:nth-child(odd)  { background: #1C1917; }
+    html[data-theme="dark"] .comp-cell { border-color: #302B27; color: var(--text); }
+    html[data-theme="dark"] .comp-cell.row-label { color: #A89888; }
+    html[data-theme="dark"] .comp-cell.summary { color: #C4B4A8; }
+    html[data-theme="dark"] .comp-footer { border-color: #302B27; background: #1C1917; }
+    html[data-theme="dark"] .comp-footer-cell { border-color: #302B27; }
+    html[data-theme="dark"] .pill-safe    { background: #1A3D2E; color: #4ABA8A; border: 1px solid #2A5C42; }
+    html[data-theme="dark"] .pill-caution { background: #3D2800; color: #D4821A; border: 1px solid #5C3D00; }
+    html[data-theme="dark"] .pill-avoid   { background: #3D1010; color: #E05252; border: 1px solid #5C1A1A; }
+    html[data-theme="dark"] .pill-neutral { background: #252019; color: #A89888; border-color: #302B27; }
+    html[data-theme="dark"] .compat-box.compatible { background: #122B1E; border-color: #1E4A30; }
+    html[data-theme="dark"] .compat-box.compatible .compat-text h3 { color: #4ABA8A; }
+    html[data-theme="dark"] .compat-box.compatible .compat-text p  { color: #C4D8CB; }
+    html[data-theme="dark"] .compat-box.conflict   { background: #2D1010; border-color: #4A1A1A; }
+    html[data-theme="dark"] .compat-box.conflict .compat-text h3   { color: #E05252; }
+    html[data-theme="dark"] .compat-box.conflict .compat-text p    { color: #D4B8B8; }
+    html[data-theme="dark"] .compat-box.empty { background: #1C1917; border-color: #302B27; }
+    html[data-theme="dark"] .compat-box.empty .compat-text h3 { color: #A89888; }
+    html[data-theme="dark"] .picker-col select { background: #1C1917; border-color: #302B27; color: var(--text); }
+    html[data-theme="dark"] .picker-col select:focus { border-color: #C4A68C; }
+    html[data-theme="dark"] .swap-btn { background: #1C1917; border-color: #302B27; color: #A89888; }
+    html[data-theme="dark"] .swap-btn:hover { border-color: #C4A68C; color: #C4A68C; }
+
+    /* Theme toggle button */
+    .theme-btn { background: none; border: 1px solid var(--border); color: var(--muted); border-radius: 8px; padding: 7px 10px; cursor: pointer; font-size: 16px; line-height: 1; transition: border-color .15s, color .15s; display: flex; align-items: center; }
+    .theme-btn:hover { border-color: var(--primary); color: var(--primary); }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); }
@@ -191,7 +233,10 @@
     </div>
     Simya Analiz
   </a>
-  <a href="https://apps.apple.com/tr/app/simya-analiz/id6761561263" class="nav-cta">App Store</a>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <button class="theme-btn" id="theme-toggle" aria-label="Tema değiştir">🌙</button>
+    <a href="https://apps.apple.com/tr/app/simya-analiz/id6761561263" class="nav-cta">App Store</a>
+  </div>
 </nav>
 
 <div class="hero">
@@ -485,6 +530,23 @@ document.getElementById("swap-btn").addEventListener("click", () => {
 });
 
 render();
+
+// Theme toggle
+const themeBtn = document.getElementById('theme-toggle');
+function isDark() {
+  const attr = document.documentElement.getAttribute('data-theme');
+  if (attr === 'dark') return true;
+  if (attr === 'light') return false;
+  return window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
+function applyTheme(dark) {
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  localStorage.setItem('simya-theme', dark ? 'dark' : 'light');
+  themeBtn.textContent = dark ? '☀️' : '🌙';
+  themeBtn.setAttribute('aria-label', dark ? 'Açık temaya geç' : 'Koyu temaya geç');
+}
+applyTheme(isDark());
+themeBtn.addEventListener('click', () => applyTheme(!isDark()));
 </script>
 </body>
 </html>
